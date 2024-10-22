@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ColorSchema {
-  static const Color primaryColor = Color(0xFF4635FF);
-  static const Color secondaryColor = Color(0xFFE12BED);
+  static const Color primaryColor = Color(0xFF4636ff);
+  static const Color secondaryColor = Color(0xFFff49ec);
   static const Color titleTextColor = Color(0xFF353537);
   static const Color subTitleTextColor = Color(0xFFADADB1);
   static const Color light = Color(0xFFFFFFFF);
