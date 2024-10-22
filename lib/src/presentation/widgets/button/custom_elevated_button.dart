@@ -7,19 +7,21 @@ class CustomElevatedButton extends StatelessWidget {
   final String buttonName;
   final VoidCallback onPressed;
   final double? buttonRadius;
+  final Color? buttonColor;
 
   const CustomElevatedButton({
     super.key,
     required this.buttonName,
     required this.onPressed,
     this.buttonRadius = 8,
+    this.buttonColor = ColorSchema.primaryColor,
   });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: ColorSchema.primaryColor,
+        backgroundColor: buttonColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(buttonRadius!.r),
         ),

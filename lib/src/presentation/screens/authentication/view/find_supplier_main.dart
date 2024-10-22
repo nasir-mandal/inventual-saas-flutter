@@ -33,17 +33,30 @@ class FindSupplierMain extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            CircleAvatar(
-              radius: 45.r,
-              backgroundColor: ColorSchema.white,
-              child: Padding(
-                padding: REdgeInsets.all(12.r),
-                child: SvgPicture.asset(
-                  "assets/images/logo/icon_logo.svg",
+            Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: ColorSchema.black.withOpacity(0.25),
+                    blurRadius: 10,
+                    spreadRadius: 2,
+                    offset: Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: CircleAvatar(
+                radius: 45.r,
+                backgroundColor: ColorSchema.white,
+                child: Padding(
+                  padding: REdgeInsets.all(12.r),
+                  child: SvgPicture.asset(
+                    "assets/images/logo/icon_logo.svg",
+                  ),
                 ),
               ),
             ),
-            SizedBox(height: 10.h),
+            SizedBox(height: 5.h),
             Text(
               "Inventual",
               textAlign: TextAlign.center,
@@ -83,6 +96,7 @@ class FindSupplierMain extends StatelessWidget {
             ),
             SizedBox(height: 15.h),
             CustomElevatedButton(
+              buttonColor: ColorSchema.secondaryColor,
               buttonName: "Verify",
               onPressed: () {},
               buttonRadius: 50,
