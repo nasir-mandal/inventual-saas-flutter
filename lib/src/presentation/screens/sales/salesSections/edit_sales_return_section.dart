@@ -105,7 +105,7 @@ class EditSalesReturnSection extends StatelessWidget {
             ),
             CustomElevatedButton(
                 buttonName: "Update Return Sales",
-                showToast: () {
+                onPressed: () {
                   SuccessToast.showSuccessToast(context, "Update Complete",
                       "${purchase["customerName"]} Update Complete");
                 }),

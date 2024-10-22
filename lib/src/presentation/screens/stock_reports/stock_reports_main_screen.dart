@@ -126,7 +126,7 @@ class _StockReportsMainScreenState extends State<StockReportsMainScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: CustomElevatedButton(
                   buttonName: "Generate Report",
-                  showToast: () async {
+                  onPressed: () async {
                     List<Map<String, dynamic>> data =
                         await stockController.fetchAllStockReport();
                     setState(() {

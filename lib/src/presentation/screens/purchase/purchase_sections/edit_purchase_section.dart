@@ -99,7 +99,7 @@ class EditPurchaseSection extends StatelessWidget {
             ),
             CustomElevatedButton(
                 buttonName: "Update",
-                showToast: () {
+                onPressed: () {
                   SuccessToast.showSuccessToast(
                       context, "Update Complete", "Purchase Update Complete");
                 }),

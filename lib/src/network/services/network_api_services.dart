@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -27,6 +28,10 @@ class NetworkApiServices extends BaseApi {
 
   @override
   Future<dynamic> getApi(String url) async {
+    if (kDebugMode) {
+      print('GET URL: $url');
+    }
+
     final String? token = await _getToken();
     if (token == null || token.isEmpty) {
       Get.snackbar("Error", "Token Not Found",
@@ -56,6 +61,9 @@ class NetworkApiServices extends BaseApi {
   }
 
   Future<dynamic> getApiV2(String url) async {
+    if (kDebugMode) {
+      print('GET URL: $url');
+    }
     final String? token = await _getToken();
     if (token == null || token.isEmpty) {
       Get.snackbar("Error", "Token Not Found",
@@ -85,6 +93,10 @@ class NetworkApiServices extends BaseApi {
 
   @override
   Future<dynamic> postApi(var data, String url, {String? token}) async {
+    if (kDebugMode) {
+      print('POST URL: $url');
+      print('Body: $data');
+    }
     final String? token = await _getToken();
     if (token == null || token.isEmpty) {
       Get.snackbar("Error", "Token Not Found",
@@ -114,6 +126,10 @@ class NetworkApiServices extends BaseApi {
   }
 
   Future<dynamic> postApiV2(var data, String url) async {
+    if (kDebugMode) {
+      print('POST URL: $url');
+      print('Body: $data');
+    }
     final String? token = await _getToken();
     if (token == null || token.isEmpty) {
       Get.snackbar("Error", "Token Not Found",
@@ -141,6 +157,9 @@ class NetworkApiServices extends BaseApi {
   }
 
   Future<dynamic> deleteApiV2(String url) async {
+    if (kDebugMode) {
+      print('DELETE URL: $url');
+    }
     final String? token = await _getToken();
     if (token == null || token.isEmpty) {
       Get.snackbar("Error", "Token Not Found",
@@ -210,6 +229,11 @@ class NetworkApiServices extends BaseApi {
   }
 
   dynamic _returnResponse(http.Response response) {
+    if (kDebugMode) {
+      print('Response Status: ${response.statusCode}');
+      print('Response Body: ${response.body}');
+    }
+
     switch (response.statusCode) {
       case 200:
       case 201:

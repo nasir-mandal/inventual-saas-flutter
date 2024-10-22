@@ -359,7 +359,7 @@ class _PurchaseBillsSectionState extends State<PurchaseReturnBillsSection> {
                     ),
                     CustomElevatedButton(
                         buttonName: "Select Items",
-                        showToast: () {
+                        onPressed: () {
                           Get.off(const CreatePurchaseReturnMainScreen());
                         })
                   ],
@@ -946,7 +946,7 @@ class _PurchaseBillsSectionState extends State<PurchaseReturnBillsSection> {
                 SizedBox(
                   width: double.infinity,
                   child: CustomElevatedButton(
-                      buttonName: "Pay Now", showToast: () {}),
+                      buttonName: "Pay Now", onPressed: () {}),
                 )
               ],
             ),

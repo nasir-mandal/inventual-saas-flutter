@@ -101,7 +101,7 @@ class _TaxReportMainScreenState extends State<TaxReportMainScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: CustomElevatedButton(
                   buttonName: "Generate Report",
-                  showToast: () async {
+                  onPressed: () async {
                     List<Map<String, dynamic>> data =
                         await reportController.fetchAllTaxReport();
                     setState(() {

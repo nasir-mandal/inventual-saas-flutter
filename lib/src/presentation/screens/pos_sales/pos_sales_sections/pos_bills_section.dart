@@ -191,7 +191,7 @@ class _PosBillsSectionState extends State<PosBillsSection> {
                     ),
                     CustomElevatedButton(
                         buttonName: "Go POS",
-                        showToast: () {
+                        onPressed: () {
                           Get.off(const POSSalesMainScreen());
                         })
                   ],

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ColorSchema {
-  static const Color primaryColor = ColorSchema.analyticsColor3;
+  static const Color primaryColor = Color(0xFF4635FF);
+  static const Color secondaryColor = Color(0xFFE12BED);
   static const Color titleTextColor = Color(0xFF353537);
   static const Color subTitleTextColor = Color(0xFFADADB1);
   static const Color light = Color(0xFFFFFFFF);
@@ -47,5 +48,6 @@ class ColorSchema {
 class AppStrings {
   static const appName = "Inventual Flutter Laravel";
   static const baseUrlV1 = "https://inventual.bdevs.net/api/v1/";
+  static const baseUrlV2 = "https://inventual.app/api/v1/";
   static const baseImgURL = "https://inventual.bdevs.net/storage/";
 }

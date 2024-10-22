@@ -101,7 +101,7 @@ class EditSalesSection extends StatelessWidget {
             ),
             CustomElevatedButton(
                 buttonName: "Update Sale",
-                showToast: () {
+                onPressed: () {
                   SuccessToast.showSuccessToast(
                       context, "Update Complete", "Sale Update Complete");
                 }),

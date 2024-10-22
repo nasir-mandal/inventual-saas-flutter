@@ -152,7 +152,7 @@ class _CustomerReportsMainScreenState extends State<CustomerReportsMainScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: CustomElevatedButton(
                   buttonName: "Generate Report",
-                  showToast: () async {
+                  onPressed: () async {
                     List<Map<String, dynamic>> data =
                         await customerController.fetchAllCustomersReport();
                     setState(() {

@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -148,7 +149,7 @@ class _CustomerReportsMainScreenState extends State<ExpenseReportsMainScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: CustomElevatedButton(
                   buttonName: "Generate Report",
-                  showToast: () async {
+                  onPressed: () async {
                     List<Map<String, dynamic>> data =
                         await expenseController.fetchAllExpenseReport();
                     setState(() {

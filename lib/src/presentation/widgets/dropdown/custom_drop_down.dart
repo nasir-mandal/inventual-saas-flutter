@@ -66,7 +66,7 @@ class _CustomDropdownFieldState extends State<CustomDropdownField> {
           closedFillColor: widget.backgroundColor ?? ColorSchema.light,
           hintStyle: GoogleFonts.inter(
               color: widget.hintTextColor ?? ColorSchema.grey,
-              fontSize: widget.hintFontSize ?? 14),
+              fontSize: widget.hintFontSize ?? 14,fontWeight: FontWeight.w600),
           closedBorderRadius: BorderRadius.circular(widget.closedBorderRadius),
           expandedBorderRadius:
               BorderRadius.circular(widget.expandedBorderRadius),

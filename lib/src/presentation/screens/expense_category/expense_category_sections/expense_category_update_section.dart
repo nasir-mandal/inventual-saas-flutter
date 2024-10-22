@@ -71,7 +71,7 @@ class ExpenseCategoryUpdateSection extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 child: CustomElevatedButton(
                     buttonName: "Update",
-                    showToast: () {
+                    onPressed: () {
                       SuccessToast.showSuccessToast(context, "Update Complete",
                           "Expense Category Update Complete");
                     }),

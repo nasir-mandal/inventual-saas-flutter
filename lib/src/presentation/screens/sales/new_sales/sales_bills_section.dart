@@ -262,7 +262,7 @@ class _PosBillsSectionState extends State<SalesBillsSection> {
                     ),
                     CustomElevatedButton(
                         buttonName: "Select New Sales ",
-                        showToast: () {
+                        onPressed: () {
                           Get.off(const NewSalesMainScreen());
                         })
                   ],

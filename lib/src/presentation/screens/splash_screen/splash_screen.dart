@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inventual/src/business_logic/settings_controller.dart';
@@ -79,21 +80,9 @@ class _SplashScreenState extends State<SplashScreen>
                         backgroundColor: ColorSchema.white,
                         radius: MediaQuery.of(context).size.width * 0.2,
                         child: Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                "assets/images/logo/login-logo.png",
-                                width: 60,
-                              ),
-                              const Text(
-                                "INVENTUAL",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 22),
-                              )
-                            ],
+                          padding: REdgeInsets.all(15),
+                          child: Image.asset(
+                            "assets/images/logo/login-logo.png",
                           ),
                         ),
                       ),

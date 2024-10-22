@@ -91,7 +91,7 @@ class _PayCompleteSectionState extends State<PayCompleteSection> {
               const SizedBox(height: 20),
               CustomElevatedButton(
                   buttonName: "Back To Home",
-                  showToast: () {
+                  onPressed: () {
                     Get.off(const ReportMainScreen());
                   }),
             ],

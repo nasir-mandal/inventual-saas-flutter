@@ -103,7 +103,7 @@ class AddPaymentSection extends StatelessWidget {
               ),
               CustomElevatedButton(
                   buttonName: "Pay Now",
-                  showToast: () {
+                  onPressed: () {
                     SuccessToast.showSuccessToast(context, "Payment Complete",
                         "${payment.value["supplierName"]} Payment Complete");
                   }),
