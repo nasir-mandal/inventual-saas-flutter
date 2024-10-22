@@ -5,7 +5,11 @@ import 'package:inventual/src/utils/contstants.dart';
 
 class FindSupplierController extends GetxController {
   final NetworkApiServices _apiServices = NetworkApiServices();
+
+  // District Variable
   final RxBool districtProgress = false.obs;
+  final RxString districtName = "".obs;
+  final RxInt districtId = 0.obs;
   final List<DistrictData> districtList = <DistrictData>[].obs;
 
   @override

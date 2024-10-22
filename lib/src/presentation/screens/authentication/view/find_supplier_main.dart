@@ -32,12 +32,26 @@ class FindSupplierMain extends StatelessWidget {
                     _buildTitle(),
                     SizedBox(height: 40.h),
                     _buildDropdownField(
-                        "Select District", ["District 1", "District 2"]),
+                        "Select District",
+                        findSupplierController.districtList.isEmpty
+                            ? ["District Not Found"]
+                            : findSupplierController.districtList
+                                .where((district) => district.title != null)
+                                .map((district) => district.title!)
+                                .toList(), (String? value) {
+                      findSupplierController.districtName.value = "";
+                      findSupplierController.districtName.value = value!;
+                      findSupplierController.districtId.value = 0;
+                      findSupplierController.districtId.value =
+                          findSupplierController.districtList
+                              .firstWhere((district) => district.title == value)
+                              .id!;
+                    }),
                     SizedBox(height: 15.h),
-                    _buildDropdownField("Select Area", ["Area 1", "Area 2"]),
+                    _buildDropdownField("Select Area", [], (String? value) {}),
                     SizedBox(height: 15.h),
                     _buildDropdownField(
-                        "Select Supplier", ["Supplier 1", "Supplier 2"]),
+                        "Select Supplier", [], (String? value) {}),
                     SizedBox(height: 15.h),
                     _buildVerifyButton(),
                     SizedBox(height: 70.h),
@@ -52,11 +66,12 @@ class FindSupplierMain extends StatelessWidget {
     return BoxDecoration(
       gradient: LinearGradient(
         colors: [
-          ColorSchema.primaryColor.withOpacity(0.7),
-          ColorSchema.secondaryColor.withOpacity(0.3),
+          ColorSchema.primaryColor,
+          ColorSchema.secondaryColor,
         ],
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
+        stops: [0.5, 1.0],
       ),
     );
   }
@@ -98,23 +113,36 @@ class FindSupplierMain extends StatelessWidget {
     );
   }
 
-  Widget _buildDropdownField(String hintText, List<String> items) {
+  Widget _buildDropdownField(String hintText, List<String> items, onSelected) {
     return CustomDropdownField(
       hintTextColor: ColorSchema.black,
       expandedBorderRadius: 25,
       closedBorderRadius: 50,
       hintText: hintText,
       dropdownItems: items,
-      onSelectedValueChanged: (value) {},
+      onSelectedValueChanged: onSelected,
     );
   }
 
   Widget _buildVerifyButton() {
-    return CustomElevatedButton(
-      buttonColor: ColorSchema.secondaryColor,
-      buttonName: "Verify",
-      onPressed: () {},
-      buttonRadius: 50,
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: ColorSchema.black.withOpacity(0.25),
+            blurRadius: 10,
+            spreadRadius: 2,
+            offset: const Offset(0, 4),
+          ),
+        ],
+        borderRadius: BorderRadius.circular(50),
+      ),
+      child: CustomElevatedButton(
+        buttonColor: ColorSchema.primaryColor,
+        buttonName: "Verify",
+        onPressed: () {},
+        buttonRadius: 50,
+      ),
     );
   }
 }
