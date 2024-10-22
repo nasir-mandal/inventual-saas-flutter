@@ -12,38 +12,38 @@ dependencies:
     sdk: flutter
 
 
-  cupertino_icons: ^1.0.2
-  shared_preferences:
-  getwidget:
-  flutter_screenutil:
-  intl:
-  animated_custom_dropdown:
+  cupertino_icons: ^1.0.8
+  shared_preferences: ^2.3.2
+  getwidget: ^4.0.0
+  flutter_screenutil: ^5.9.3
+  intl: ^0.19.0
+  animated_custom_dropdown: ^3.1.1
   flutter_onboarding_slider: ^1.0.11
-  flutter_svg: ^2.0.9
-  carousel_slider: ^4.2.1
-  fl_chart: ^0.66.1
+  flutter_svg: ^2.0.10+1
+  carousel_slider: ^5.0.0
+  fl_chart: ^0.69.0
   get: ^4.6.6
-  sidebarx: ^0.16.3
-  google_fonts: ^6.1.0
-  cherry_toast: ^1.8.0
+  sidebarx: ^0.17.1
+  google_fonts: ^6.2.1
+  cherry_toast: ^1.11.0
   flutter_rounded_date_picker: ^3.0.4
   card_slider: ^1.0.5
   expansion_tile_card: ^3.0.0
   flutter_easy_faq: ^1.0.1
-  pdf: ^3.10.8
-  printing: ^5.12.0
-  path_provider: ^2.1.2
-  http: ^1.2.1
+  pdf: ^3.11.1
+  printing: ^5.13.3
+  path_provider: ^2.1.4
+  http: ^1.2.2
   image_picker: ^1.1.2
   shimmer: ^3.0.0
-  connectivity_plus: ^6.0.5
+  connectivity_plus: ^6.1.0
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  flutter_launcher_icons: ^0.13.1
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.1
 
 flutter_launcher_icons:
   image_path: "assets/images/logo/icon.png"

@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/presentation/widgets/button/custom_elevated_button.dart';
 import 'package:inventual/src/utils/contstants.dart';
 
 class NoPermissionPage extends StatelessWidget {

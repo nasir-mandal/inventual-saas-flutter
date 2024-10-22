@@ -114,7 +114,6 @@ class AnalyticsChartSectionState extends State<AnalyticsChartSection> {
                   maxY: maxYValue,
                   barTouchData: BarTouchData(
                     touchTooltipData: BarTouchTooltipData(
-                      tooltipBgColor: ColorSchema.grey,
                       getTooltipItem: (a, b, c, d) => null,
                     ),
                     touchCallback: (FlTouchEvent event, response) {

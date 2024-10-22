@@ -53,6 +53,14 @@ class _CustomDropdownFieldState extends State<CustomDropdownField> {
       validateOnChange: true,
       validator: widget.validator,
       decoration: CustomDropdownDecoration(
+          closedSuffixIcon: Icon(
+            Icons.keyboard_arrow_down,
+            color: ColorSchema.grey,
+          ),
+          expandedSuffixIcon: Icon(
+            Icons.keyboard_arrow_up,
+            color: ColorSchema.grey,
+          ),
           headerStyle: const TextStyle(fontSize: 16),
           listItemStyle: const TextStyle(fontSize: 16),
           closedFillColor: widget.backgroundColor ?? ColorSchema.light,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inventual/src/utils/contstants.dart';
 
+// ignore: must_be_immutable
 class DropdownFormFieldSection extends StatefulWidget {
   final String label;
   final String hint;
@@ -9,12 +10,12 @@ class DropdownFormFieldSection extends StatefulWidget {
   String? selectionItem;
 
   DropdownFormFieldSection({
-    Key? key,
+    super.key,
     required this.label,
     required this.hint,
     required this.items,
     required this.selectionItem,
-  }) : super(key: key);
+  });
 
   @override
   State<DropdownFormFieldSection> createState() =>

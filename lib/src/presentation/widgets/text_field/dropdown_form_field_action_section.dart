@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:inventual/src/routes/app_routes.dart';
 import 'package:inventual/src/utils/contstants.dart';
 
+// ignore: must_be_immutable
 class DropdownFormFieldActionSection extends StatefulWidget {
   final String label;
   final String hint;

@@ -6,7 +6,7 @@ import 'package:inventual/src/routes/app_routes.dart';
 import 'package:inventual/src/utils/contstants.dart';
 
 class OnboardingScreen extends StatelessWidget {
-  const OnboardingScreen({Key? key}) : super(key: key);
+  const OnboardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class OnboardingScreen extends StatelessWidget {
           pageBackgroundColor: ColorSchema.white,
           finishButtonText: "Login",
           onFinish: () {
-            Get.toNamed(AppRoutes.login);
+            Get.toNamed(AppRoutes.findSupplier);
           },
           finishButtonStyle: const FinishButtonStyle(
             backgroundColor: ColorSchema.primaryColor,

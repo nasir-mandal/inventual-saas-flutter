@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:inventual/src/presentation/screens/add_product/add_product_main_screen.dart';
 import 'package:inventual/src/presentation/screens/add_user/add_user_main_screen.dart';
 import 'package:inventual/src/presentation/screens/analytics/analytics_main_screen.dart';
+import 'package:inventual/src/presentation/screens/authentication/find_supplier.dart';
 import 'package:inventual/src/presentation/screens/authentication/login_screen.dart';
 import 'package:inventual/src/presentation/screens/authentication/register_screen.dart';
 import 'package:inventual/src/presentation/screens/biller/biller_main_screen.dart';
@@ -51,6 +52,7 @@ class AppRoutes {
   static const String onboarding = "/onboarding";
   static const String login = "/login";
   static const String register = "/register";
+  static const String findSupplier = "/findSupplier";
   static const String forgotPassword = "/forgotPassword";
   static const String dashboard = "/dashboard";
   static const String analytics = "/analytics";
@@ -110,6 +112,7 @@ class AppRoutes {
     GetPage(name: onboarding, page: () => const OnboardingScreen()),
     GetPage(name: login, page: () => const LoginScreen()),
     GetPage(name: register, page: () => const RegisterScreen()),
+    GetPage(name: findSupplier, page: () => const FindSupplier()),
     GetPage(name: dashboard, page: () => const DashboardMainScreen()),
     GetPage(name: analytics, page: () => const AnalyticsMainScreen()),
     GetPage(name: sales, page: () => const SalesMainScreen()),
