@@ -1,0 +1,66 @@
+name: inventual
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.2
+
+environment:
+  sdk: '>=3.2.4 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+  shared_preferences:
+  getwidget:
+  flutter_screenutil:
+  intl:
+  animated_custom_dropdown:
+  flutter_onboarding_slider: ^1.0.11
+  flutter_svg: ^2.0.9
+  carousel_slider: ^4.2.1
+  fl_chart: ^0.66.1
+  get: ^4.6.6
+  sidebarx: ^0.16.3
+  google_fonts: ^6.1.0
+  cherry_toast: ^1.8.0
+  flutter_rounded_date_picker: ^3.0.4
+  card_slider: ^1.0.5
+  expansion_tile_card: ^3.0.0
+  flutter_easy_faq: ^1.0.1
+  pdf: ^3.10.8
+  printing: ^5.12.0
+  path_provider: ^2.1.2
+  http: ^1.2.1
+  image_picker: ^1.1.2
+  shimmer: ^3.0.0
+  connectivity_plus: ^6.0.5
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  image_path: "assets/images/logo/icon.png"
+  android: true
+  ios: true
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/onboarding/
+    - assets/images/logo/
+    - assets/icons/icon_image/
+    - assets/images/avatar/
+    - assets/icons/icon_svg/
+    - assets/images/offer/
+    - assets/images/products/
+    - assets/images/gif/
+    - assets/images/logo/icon.png
