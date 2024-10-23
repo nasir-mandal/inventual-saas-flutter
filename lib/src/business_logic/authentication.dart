@@ -20,7 +20,6 @@ class UserAuthenticationController extends GetxController {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       final String? supplierKey = prefs.getString("supplier_key");
-      print("Supplier Key : $supplierKey");
       Map<String, String> requestBody = {
         "username": username.value.text,
         "password": password.value.text,

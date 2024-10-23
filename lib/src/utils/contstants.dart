@@ -50,6 +50,7 @@ class AppStrings {
   static const appName = "Inventual Flutter Laravel";
   static const defaultBaseUrlV1 = "https://inventual.app/api/v1/";
   static const baseImgURL = "https://inventual.bdevs.net/storage/";
+
   static Future<String> getBaseUrlV1() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? supplierKey = prefs.getString("supplier_key");
