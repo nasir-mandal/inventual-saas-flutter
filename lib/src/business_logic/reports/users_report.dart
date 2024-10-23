@@ -30,7 +30,7 @@ class UsersReportReportController extends GetxController {
 
       isLoading.value = true;
       final url =
-          "${AppStrings.baseUrlV1}report/user?from_date=$formattedStartDate&to_date=$formattedEndDate";
+          "${await AppStrings.getBaseUrlV1()}report/user?from_date=$formattedStartDate&to_date=$formattedEndDate";
       final jsonResponse = await _apiServices.getApiV2(url);
 
       if (jsonResponse["data"] != null) {

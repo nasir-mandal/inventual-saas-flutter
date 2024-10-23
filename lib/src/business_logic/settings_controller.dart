@@ -25,7 +25,7 @@ class SettingsController extends GetxController {
   Future<bool> fetchAllSettings() async {
     try {
       isLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}settings/all";
+      final url = "${await AppStrings.getBaseUrlV1()}settings/all";
       final jsonResponse = await _apiServices.getApiBeforeAuthentication(url);
 
       if (jsonResponse != null && jsonResponse["data"] != null) {

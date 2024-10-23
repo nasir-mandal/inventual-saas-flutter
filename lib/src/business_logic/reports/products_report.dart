@@ -27,7 +27,7 @@ class ProductReportReportController extends GetxController {
           : '';
       isLoading.value = true;
       final url =
-          "${AppStrings.baseUrlV1}report/product?start_date=$formattedStartDate&end_date=$formattedEndDate";
+          "${await AppStrings.getBaseUrlV1()}report/product?start_date=$formattedStartDate&end_date=$formattedEndDate";
       final jsonResponse = await _apiServices.getApiV2(url);
 
       if (jsonResponse["data"] != null) {

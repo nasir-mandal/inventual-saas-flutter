@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -46,7 +47,7 @@ class CreateCustomerController extends GetxController {
           "rewardPoint": rewardPoint.value.text,
           "zipCode": zipCode.value.text,
         };
-        const url = "${AppStrings.baseUrlV1}customers/save";
+        final url = "${await AppStrings.getBaseUrlV1()}customers/save";
         final jsonResponse = await _apiServices.postApiV2(requestBody, url);
         if (jsonResponse != null) {
           firstName.value.text = '';
@@ -101,7 +102,7 @@ class CustomerController extends GetxController {
 
       final String changeIdType = id.toString();
       final String url =
-          "${AppStrings.baseUrlV1}customers/delete/$changeIdType";
+          "${await AppStrings.getBaseUrlV1()}customers/delete/$changeIdType";
       final jsonResponse = await _apiServices.deleteApiV2(url);
 
       if (jsonResponse != null && jsonResponse["success"] == true) {
@@ -140,7 +141,7 @@ class CustomerController extends GetxController {
   Future<void> fetchAllCustomers() async {
     try {
       isLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}customers/list";
+      final url = "${await AppStrings.getBaseUrlV1()}customers/list";
       final jsonResponse = await _apiServices.getApiV2(url);
 
       if (jsonResponse != null && jsonResponse["data"] != null) {
@@ -271,7 +272,7 @@ class UpdateCustomerController extends GetxController {
           "_method": 'PUT',
         };
         final url =
-            "${AppStrings.baseUrlV1}customers/update/${customerObj['id']}";
+            "${await AppStrings.getBaseUrlV1()}customers/update/${customerObj['id']}";
         final jsonResponse = await _apiServices.postApiV2(requestBody, url);
         if (jsonResponse != null) {
           firstName.value.text = '';

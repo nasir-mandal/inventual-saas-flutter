@@ -56,8 +56,8 @@ class CategoryController extends GetxController {
 
     try {
       final changeIdType = categoryObj['category_id'].toString();
-      final url =
-          Uri.parse("${AppStrings.baseUrlV1}category/update/$changeIdType");
+      final url = Uri.parse(
+          "${await AppStrings.getBaseUrlV1()}category/update/$changeIdType");
 
       final headers = {
         'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ class CategoryController extends GetxController {
     final String parentID = parentCategoryID.value.toString();
 
     try {
-      final url = Uri.parse("${AppStrings.baseUrlV1}category/save");
+      final url = Uri.parse("${await AppStrings.getBaseUrlV1()}category/save");
 
       final headers = {
         'Content-Type': 'application/json',
@@ -192,7 +192,8 @@ class CategoryController extends GetxController {
       {required dynamic categoryType}) async {
     try {
       isDynamicLoading.value = true;
-      final url = "${AppStrings.baseUrlV1}category/list?type=$categoryType";
+      final url =
+          "${await AppStrings.getBaseUrlV1()}category/list?type=$categoryType";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = List<Map<String, dynamic>>.from(jsonResponse["data"]);
@@ -257,7 +258,7 @@ class CategoryController extends GetxController {
     try {
       allCategoryLoading.value = true;
 
-      const url = "${AppStrings.baseUrlV1}category/list";
+      final url = "${await AppStrings.getBaseUrlV1()}category/list";
       final jsonResponse = await _apiServices.getApiV2(url);
 
       if (jsonResponse != null && jsonResponse["data"] != null) {
@@ -299,7 +300,8 @@ class CategoryController extends GetxController {
     try {
       final changeIdType = id.toString();
       deleteLoading.value = true;
-      final url = "${AppStrings.baseUrlV1}category/delete/$changeIdType";
+      final url =
+          "${await AppStrings.getBaseUrlV1()}category/delete/$changeIdType";
       final jsonResponse = await _apiServices.deleteApiV2(url);
       if (jsonResponse["data"] == true && jsonResponse["success"] == true) {
         Get.snackbar(

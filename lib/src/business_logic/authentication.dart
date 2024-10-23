@@ -18,18 +18,19 @@ class UserAuthenticationController extends GetxController {
   Future<bool> login(BuildContext context) async {
     isLoading.value = true;
     try {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      final String? supplierKey = prefs.getString("supplier_key");
+      print("Supplier Key : $supplierKey");
       Map<String, String> requestBody = {
         "username": username.value.text,
         "password": password.value.text,
       };
-      const url = "${AppStrings.baseUrlV1}users/login";
+      final String url = "${await AppStrings.getBaseUrlV1()}users/login";
       final jsonResponse = await _apiServices.loginApi(requestBody, url);
 
       if (jsonResponse != null && jsonResponse['success']) {
         Map<String, dynamic> userData = jsonResponse["data"];
         Map<String, dynamic> permissions = jsonResponse["permissions"];
-
-        final SharedPreferences prefs = await SharedPreferences.getInstance();
         await prefs.setString("token", userData["bearer_token"] ?? '');
         String? imagePath;
         if (userData["image"] != null && userData["image"]["path"] != null) {
@@ -323,6 +324,7 @@ class UserAuthenticationController extends GetxController {
           "roleId": roleId.toString(),
           "token": userData["bearer_token"] ?? '',
           "image": imagePath ?? '',
+          "supplierKey": supplierKey,
           "userPermissions": userPermissions
         };
         String jsonString = jsonEncode(user);
@@ -352,6 +354,7 @@ class UserAuthenticationController extends GetxController {
 
   void logOut() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove("token");
     await prefs.remove('user');
   }
 }
@@ -375,7 +378,7 @@ class UserController extends GetxController {
 
   void logOut() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove("token");
     await prefs.remove('user');
-    user.clear();
   }
 }

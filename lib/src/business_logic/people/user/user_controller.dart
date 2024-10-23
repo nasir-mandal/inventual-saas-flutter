@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -30,7 +31,7 @@ class CreateUserController extends GetxController {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? token = prefs.getString("token");
     try {
-      final url = Uri.parse("${AppStrings.baseUrlV1}users/register");
+      final url = Uri.parse("${await AppStrings.getBaseUrlV1()}users/register");
 
       final headers = {
         'Content-Type': 'application/json',
@@ -122,7 +123,8 @@ class UserListController extends GetxController {
       deleteLoading.value = true;
 
       final String changeIdType = id.toString();
-      final String url = "${AppStrings.baseUrlV1}users/delete/$changeIdType";
+      final String url =
+          "${await AppStrings.getBaseUrlV1()}users/delete/$changeIdType";
       final jsonResponse = await _apiServices.deleteApiV2(url);
 
       if (jsonResponse != null && jsonResponse["success"] == true) {
@@ -161,7 +163,7 @@ class UserListController extends GetxController {
   Future<void> fetchAllUsers() async {
     try {
       isLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}users/list";
+      final url = "${await AppStrings.getBaseUrlV1()}users/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = jsonResponse["data"] as List;
@@ -249,8 +251,8 @@ class UpdateUserController extends GetxController {
     final String? token = prefs.getString("token");
     try {
       final changeIdType = userObj['id'].toString();
-      final url =
-          Uri.parse("${AppStrings.baseUrlV1}users/update/$changeIdType");
+      final url = Uri.parse(
+          "${await AppStrings.getBaseUrlV1()}users/update/$changeIdType");
       final headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',

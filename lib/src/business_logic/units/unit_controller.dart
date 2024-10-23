@@ -15,7 +15,8 @@ class UnitController extends GetxController {
     try {
       final changeIdType = id.toString();
       deleteLoading.value = true;
-      final url = "${AppStrings.baseUrlV1}units/delete/$changeIdType";
+      final url =
+          "${await AppStrings.getBaseUrlV1()}units/delete/$changeIdType";
       final jsonResponse = await _apiServices.deleteApiV2(url);
       if (jsonResponse != null && jsonResponse["success"] == true) {
         Get.snackbar(
@@ -43,7 +44,7 @@ class UnitController extends GetxController {
         "name": name.value.text,
         "unit_type": unitType.value.text,
       };
-      const url = "${AppStrings.baseUrlV1}units/save";
+      final url = "${await AppStrings.getBaseUrlV1()}units/save";
       final jsonResponse = await _apiServices.postApiV2(requestBody, url);
       if (jsonResponse != null) {
         isLoading.value = false;
@@ -85,7 +86,8 @@ class UnitController extends GetxController {
             : unitType.value.text,
         "_method": "PUT"
       };
-      final url = "${AppStrings.baseUrlV1}units/update/${unitObj['id']}";
+      final url =
+          "${await AppStrings.getBaseUrlV1()}units/update/${unitObj['id']}";
       final jsonResponse = await _apiServices.postApiV2(requestBody, url);
       if (jsonResponse != null) {
         isLoading.value = false;

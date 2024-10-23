@@ -39,7 +39,8 @@ class FindSupplierController extends GetxController {
   Future<void> getDistrict() async {
     try {
       districtProgress.value = true;
-      final String url = "${AppStrings.baseUrlV2}district/list?country_id=1";
+      final String url =
+          "${AppStrings.defaultBaseUrlV1}district/list?country_id=1";
       final response = await _apiServices.getApiBeforeAuthentication(url);
       final responseData = DistrictModel.fromJson(response);
       districtList.clear();
@@ -58,7 +59,7 @@ class FindSupplierController extends GetxController {
     try {
       areaProgress.value = true;
       final String url =
-          "${AppStrings.baseUrlV2}area/list?district_id=$districtId";
+          "${AppStrings.defaultBaseUrlV1}area/list?district_id=$districtId";
       final response = await _apiServices.getApiBeforeAuthentication(url);
       final responseData = AreaModel.fromJson(response);
       areaList.clear();
@@ -77,7 +78,7 @@ class FindSupplierController extends GetxController {
     try {
       supplierProgress.value = true;
       final String url =
-          "${AppStrings.baseUrlV2}suppliers/stores?area_id=$areaId";
+          "${AppStrings.defaultBaseUrlV1}suppliers/stores?area_id=$areaId";
       final response = await _apiServices.getApiBeforeAuthentication(url);
       final responseData = SupplierModel.fromJson(response);
       supplierList.clear();

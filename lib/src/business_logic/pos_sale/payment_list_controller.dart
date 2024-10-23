@@ -11,7 +11,7 @@ class PaymentListController extends GetxController {
   Future<void> fetchAllPaymentList() async {
     try {
       isLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}payments/list";
+      final url = "${await AppStrings.getBaseUrlV1()}payments/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse["data"] != null) {
         final data = jsonResponse["data"] as List;

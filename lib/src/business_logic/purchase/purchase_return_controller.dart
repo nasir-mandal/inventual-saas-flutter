@@ -112,7 +112,7 @@ class CreatePurchaseReturnController extends GetxController {
         "remark": remark.value.text,
         "returnNote": returnNote.value.text,
       };
-      const url = "${AppStrings.baseUrlV1}purchases/return/save";
+      final url = "${await AppStrings.getBaseUrlV1()}purchases/return/save";
       final jsonResponse = await _apiServices.postApiV2(requestBody, url);
       if (jsonResponse != null) {
         supplierID.value = 0;
@@ -158,7 +158,7 @@ class PurchaseReturnController extends GetxController {
   Future<void> fetchAllReturnPurchases() async {
     try {
       isLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}purchases/return/list";
+      final url = "${await AppStrings.getBaseUrlV1()}purchases/return/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = jsonResponse["data"] as List;
@@ -193,7 +193,7 @@ class PurchaseReturnController extends GetxController {
       deleteLoading.value = true;
       final String changeIdType = id.toString();
       final String url =
-          "${AppStrings.baseUrlV1}purchases/return/delete/$changeIdType";
+          "${await AppStrings.getBaseUrlV1()}purchases/return/delete/$changeIdType";
       final jsonResponse = await _apiServices.deleteApiV2(url);
       if (jsonResponse != null && jsonResponse["success"] == true) {
         Get.snackbar(

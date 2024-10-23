@@ -12,7 +12,7 @@ class ExpenseListController extends GetxController {
   Future<void> fetchExpenseReport() async {
     try {
       isLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}expenses/list";
+      final url = "${await AppStrings.getBaseUrlV1()}expenses/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse["data"] != null) {
         final data = jsonResponse["data"] as List;
@@ -53,7 +53,8 @@ class ExpenseListController extends GetxController {
     try {
       deleteLoading.value = true;
       final String changeIdType = id.toString();
-      final String url = "${AppStrings.baseUrlV1}expenses/delete/$changeIdType";
+      final String url =
+          "${await AppStrings.getBaseUrlV1()}expenses/delete/$changeIdType";
       final jsonResponse = await _apiServices.deleteApiV2(url);
       if (jsonResponse != null && jsonResponse["success"] == true) {
         Get.snackbar(

@@ -33,7 +33,8 @@ class CreateSupplierController extends GetxController {
     try {
       final changeIdType = id.toString();
       deleteLoading.value = true;
-      final url = "${AppStrings.baseUrlV1}suppliers/delete/$changeIdType";
+      final url =
+          "${await AppStrings.getBaseUrlV1()}suppliers/delete/$changeIdType";
       final jsonResponse = await _apiServices.deleteApiV2(url);
       if (jsonResponse != null && jsonResponse["success"] == true) {
         deleteSuccess.value = true;
@@ -82,7 +83,7 @@ class CreateSupplierController extends GetxController {
           "supplierCode": supplierCode.value.text,
           "zipCode": zipCode.value.text,
         };
-        const url = "${AppStrings.baseUrlV1}suppliers/save";
+        final url = "${await AppStrings.getBaseUrlV1()}suppliers/save";
         final jsonResponse = await _apiServices.postApiV2(requestBody, url);
         if (jsonResponse != null) {
           firstName.value.text = '';
@@ -185,7 +186,7 @@ class UpdateSupplierController extends GetxController {
         };
 
         final url =
-            "${AppStrings.baseUrlV1}suppliers/update/${supplierObj['id']}";
+            "${await AppStrings.getBaseUrlV1()}suppliers/update/${supplierObj['id']}";
         final jsonResponse = await _apiServices.postApiV2(requestBody, url);
         if (jsonResponse != null) {
           firstName.value.text = '';

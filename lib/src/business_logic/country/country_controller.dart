@@ -11,7 +11,7 @@ class CountryController extends GetxController {
   Future<void> fetchAllCountry() async {
     try {
       isLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}country/list";
+      final url = "${await AppStrings.getBaseUrlV1()}country/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse["data"] != null) {
         final data = jsonResponse["data"] as List;

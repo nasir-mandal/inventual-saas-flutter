@@ -34,7 +34,7 @@ class TaxReportReportController extends GetxController {
 
       isLoading.value = true;
       final url =
-          "${AppStrings.baseUrlV1}report/tax?from_date=$formattedStartDate&to_date=$formattedEndDate&report_type=$reportType";
+          "${await AppStrings.getBaseUrlV1()}report/tax?from_date=$formattedStartDate&to_date=$formattedEndDate&report_type=$reportType";
       final jsonResponse = await _apiServices.getApiV2(url);
 
       if (jsonResponse["data"] != null) {

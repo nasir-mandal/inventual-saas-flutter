@@ -29,8 +29,8 @@ class BrandController extends GetxController {
 
     try {
       final changeIdType = brandObj['id'].toString();
-      final url =
-          Uri.parse("${AppStrings.baseUrlV1}brands/update/$changeIdType");
+      final url = Uri.parse(
+          "${await AppStrings.getBaseUrlV1()}brands/update/$changeIdType");
 
       final headers = {
         'Content-Type': 'application/json',
@@ -97,7 +97,8 @@ class BrandController extends GetxController {
     try {
       final changeIdType = id.toString();
       deleteLoading.value = true;
-      final url = "${AppStrings.baseUrlV1}brands/delete/$changeIdType";
+      final url =
+          "${await AppStrings.getBaseUrlV1()}brands/delete/$changeIdType";
       final jsonResponse = await _apiServices.deleteApiV2(url);
 
       if (jsonResponse != null && jsonResponse["success"] == true) {
@@ -141,7 +142,7 @@ class BrandController extends GetxController {
     final String? token = prefs.getString("token");
 
     try {
-      final url = Uri.parse("${AppStrings.baseUrlV1}brands/save");
+      final url = Uri.parse("${await AppStrings.getBaseUrlV1()}brands/save");
 
       final headers = {
         'Content-Type': 'application/json',

@@ -211,6 +211,9 @@ class NetworkApiServices extends BaseApi {
     var data,
     String url,
   ) async {
+    if (kDebugMode) {
+      print('Login URL: $url');
+    }
     try {
       final response = await http
           .post(Uri.parse(url), body: (data))
@@ -251,7 +254,7 @@ class NetworkApiServices extends BaseApi {
   dynamic _returnResponse(http.Response response) {
     if (kDebugMode) {
       print('Response Status: ${response.statusCode}');
-      print('Response Body: ${response.body}');
+      // print('Response Body: ${response.body}');
     }
 
     switch (response.statusCode) {

@@ -41,7 +41,7 @@ class CreateWarehouseController extends GetxController {
           "address": address.value.text,
           "description": description.value.text,
         };
-        const url = "${AppStrings.baseUrlV1}warehouses/save";
+        final url = "${await AppStrings.getBaseUrlV1()}warehouses/save";
         final jsonResponse = await _apiServices.postApiV2(requestBody, url);
         if (jsonResponse != null) {
           name.value.text = '';
@@ -86,7 +86,7 @@ class CreateWarehouseController extends GetxController {
 
       final String changeIdType = id.toString();
       final String url =
-          "${AppStrings.baseUrlV1}warehouses/delete/$changeIdType";
+          "${await AppStrings.getBaseUrlV1()}warehouses/delete/$changeIdType";
       final jsonResponse = await _apiServices.deleteApiV2(url);
 
       if (jsonResponse != null && jsonResponse["success"] == true) {
@@ -173,7 +173,7 @@ class UpdateWarehouseController extends GetxController {
           "_method": 'PUT'
         };
         final url =
-            "${AppStrings.baseUrlV1}warehouses/update/${warehouseObj['id']}";
+            "${await AppStrings.getBaseUrlV1()}warehouses/update/${warehouseObj['id']}";
         final jsonResponse = await _apiServices.postApiV2(requestBody, url);
         if (jsonResponse != null) {
           name.value.text = '';

@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -33,8 +34,8 @@ class RoleController extends GetxController {
     final String? token = prefs.getString("token");
     try {
       final changeIdType = roleObj['id'].toString();
-      final url =
-          Uri.parse("${AppStrings.baseUrlV1}roles/update/$changeIdType");
+      final url = Uri.parse(
+          "${await AppStrings.getBaseUrlV1()}roles/update/$changeIdType");
       final headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -79,7 +80,8 @@ class RoleController extends GetxController {
     try {
       final changeIdType = id.toString();
       deleteLoading.value = true;
-      final url = "${AppStrings.baseUrlV1}roles/delete/$changeIdType";
+      final url =
+          "${await AppStrings.getBaseUrlV1()}roles/delete/$changeIdType";
       final jsonResponse = await _apiServices.deleteApiV2(url);
 
       if (jsonResponse != null && jsonResponse["success"] == true) {
@@ -116,7 +118,7 @@ class RoleController extends GetxController {
       if (userString != null) {
         jsonDecode(userString);
         Map<String, dynamic> requestBody = {"name": name.value.text};
-        const url = "${AppStrings.baseUrlV1}roles/save";
+        final url = "${await AppStrings.getBaseUrlV1()}roles/save";
         final jsonResponse = await _apiServices.postApiV2(requestBody, url);
         if (jsonResponse != null && jsonResponse["success"] == true) {
           name.value.text = '';
@@ -144,7 +146,7 @@ class RoleController extends GetxController {
   Future<void> fetchAllRoles() async {
     try {
       roleLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}roles/list";
+      final url = "${await AppStrings.getBaseUrlV1()}roles/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = List<Map<String, dynamic>>.from(jsonResponse["data"]);

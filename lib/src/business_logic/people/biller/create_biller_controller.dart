@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -34,7 +35,8 @@ class CreateBillerController extends GetxController {
     try {
       deleteLoading.value = true;
       final String changeIdType = id.toString();
-      final String url = "${AppStrings.baseUrlV1}billers/delete/$changeIdType";
+      final String url =
+          "${await AppStrings.getBaseUrlV1()}billers/delete/$changeIdType";
       final jsonResponse = await _apiServices.deleteApiV2(url);
       if (jsonResponse != null && jsonResponse["success"] == true) {
         Get.snackbar(
@@ -94,7 +96,7 @@ class CreateBillerController extends GetxController {
           "nidPassportNumber": nidOrPassportNumber.value.text,
           "dateOfJoin": finalDate,
         };
-        const url = "${AppStrings.baseUrlV1}billers/save";
+        final url = "${await AppStrings.getBaseUrlV1()}billers/save";
         final jsonResponse = await _apiServices.postApiV2(requestBody, url);
         if (jsonResponse != null) {
           firstName.value.text = '';
@@ -204,7 +206,8 @@ class UpdateBillerController extends GetxController {
           "_method": 'PUT',
         };
         final dynamic billerID = billerObj['id'];
-        final url = "${AppStrings.baseUrlV1}billers/update/$billerID";
+        final url =
+            "${await AppStrings.getBaseUrlV1()}billers/update/$billerID";
         final jsonResponse = await _apiServices.postApiV2(requestBody, url);
         if (jsonResponse != null) {
           firstName.value.text = '';

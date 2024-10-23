@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -53,7 +54,7 @@ class AddExpenseController extends GetxController {
           "expenseType": expenseTypeValue.value,
           "comment": notes.value.text
         };
-        const url = "${AppStrings.baseUrlV1}expenses/save";
+        final url = "${await AppStrings.getBaseUrlV1()}expenses/save";
         final jsonResponse = await _apiServices.postApiV2(requestBody, url);
         if (jsonResponse != null) {
           amount.value.text = '';

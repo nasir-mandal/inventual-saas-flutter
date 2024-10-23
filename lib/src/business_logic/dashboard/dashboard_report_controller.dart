@@ -14,7 +14,7 @@ class DashboardReportController extends GetxController {
   Future<void> fetchDashboardReport() async {
     try {
       isLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}report/dashboard";
+      final url = "${await AppStrings.getBaseUrlV1()}report/dashboard";
       final jsonResponse = await _apiServices.getApiV2(url);
 
       if (jsonResponse["success"] == true) {

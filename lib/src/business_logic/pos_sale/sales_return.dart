@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -119,7 +120,7 @@ class CreateSalesReturnController extends GetxController {
         "remark": remark.value.text,
         "refund_note": returnNote.value.text,
       };
-      const url = "${AppStrings.baseUrlV1}sales/return/save";
+      final url = "${await AppStrings.getBaseUrlV1()}sales/return/save";
       final jsonResponse = await _apiServices.postApiV2(requestBody, url);
 
       if (jsonResponse != null) {
@@ -176,7 +177,7 @@ class SalesReturnController extends GetxController {
       }
 
       isLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}sales/return/list";
+      final url = "${await AppStrings.getBaseUrlV1()}sales/return/list";
 
       final jsonResponse = await _apiServices.getApiV2(url);
 
@@ -232,7 +233,7 @@ class SalesReturnController extends GetxController {
 
       final String changeIdType = id.toString();
       final String url =
-          "${AppStrings.baseUrlV1}sales/return/delete/$changeIdType";
+          "${await AppStrings.getBaseUrlV1()}sales/return/delete/$changeIdType";
       final jsonResponse = await _apiServices.deleteApiV2(url);
 
       if (jsonResponse != null && jsonResponse["success"] == true) {

@@ -22,6 +22,7 @@ class _SplashScreenState extends State<SplashScreen>
   final SettingsController settingsController = SettingsController();
   late AnimationController _controller;
   late Animation<double> _animation;
+
   @override
   void initState() {
     super.initState();
@@ -38,6 +39,7 @@ class _SplashScreenState extends State<SplashScreen>
   Future<void> _initializeData() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final user = prefs.getString("user");
+    final String? supplierKey = prefs.getString("supplier_key");
     if (user != null) {
       final decodeUser = json.decode(user);
       final token = decodeUser["token"];
@@ -47,9 +49,15 @@ class _SplashScreenState extends State<SplashScreen>
         });
       } else {}
     } else {
-      Timer(const Duration(seconds: 5), () {
-        Navigator.pushNamed(context, AppRoutes.onboarding);
-      });
+      if (supplierKey != null && supplierKey.isNotEmpty) {
+        Timer(const Duration(seconds: 5), () {
+          Navigator.pushNamed(context, AppRoutes.login);
+        });
+      } else {
+        Timer(const Duration(seconds: 5), () {
+          Navigator.pushNamed(context, AppRoutes.onboarding);
+        });
+      }
     }
   }
 

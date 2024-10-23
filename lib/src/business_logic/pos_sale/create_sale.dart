@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -134,7 +135,7 @@ class CreateSaleController extends GetxController {
         "paymentStatus": paymentStatusValue.value,
         "saleStatus": saleStatusValue.value,
       };
-      const url = "${AppStrings.baseUrlV1}sales/save";
+      final url = "${await AppStrings.getBaseUrlV1()}sales/save";
       final jsonResponse = await _apiServices.postApiV2(requestBody, url);
       if (jsonResponse != null) {
         orderID.value = jsonResponse['data']['id'];

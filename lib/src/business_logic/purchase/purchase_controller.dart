@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -113,7 +114,7 @@ class CreatePurchaseController extends GetxController {
         "purchaseStatus": purchaseStatus,
       };
 
-      const url = "${AppStrings.baseUrlV1}purchases/save";
+      final url = "${await AppStrings.getBaseUrlV1()}purchases/save";
       final jsonResponse = await _apiServices.postApiV2(requestBody, url);
       if (jsonResponse != null) {
         supplierID.value = 0;
@@ -164,7 +165,7 @@ class PurchaseController extends GetxController {
   Future<void> fetchAllPurchases() async {
     try {
       isLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}purchases/list";
+      final url = "${await AppStrings.getBaseUrlV1()}purchases/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = jsonResponse["data"] as List;

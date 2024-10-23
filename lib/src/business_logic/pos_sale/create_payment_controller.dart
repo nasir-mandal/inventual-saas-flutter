@@ -59,7 +59,7 @@ class CreatePaymentController extends GetxController {
         "remark": remark.value.text,
       };
 
-      const url = "${AppStrings.baseUrlV1}payments/save";
+      final url = "${await AppStrings.getBaseUrlV1()}payments/save";
       final jsonResponse = await _apiServices.postApiV2(requestBody, url);
       if (jsonResponse != null) {
         Get.to(() => const PayCompleteSection());

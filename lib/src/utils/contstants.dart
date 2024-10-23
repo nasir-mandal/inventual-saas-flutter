@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ColorSchema {
   static const Color primaryColor = Color(0xFF4636ff);
@@ -47,7 +48,14 @@ class ColorSchema {
 
 class AppStrings {
   static const appName = "Inventual Flutter Laravel";
-  static const baseUrlV1 = "https://inventual.bdevs.net/api/v1/";
-  static const baseUrlV2 = "https://inventual.app/api/v1/";
+  static const defaultBaseUrlV1 = "https://inventual.app/api/v1/";
   static const baseImgURL = "https://inventual.bdevs.net/storage/";
+  static Future<String> getBaseUrlV1() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? supplierKey = prefs.getString("supplier_key");
+    if (supplierKey == null || supplierKey.isEmpty) {
+      return defaultBaseUrlV1;
+    }
+    return "https://$supplierKey.inventual.app/api/v1/";
+  }
 }

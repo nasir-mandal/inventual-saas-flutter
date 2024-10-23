@@ -141,7 +141,7 @@ class ProductDependencyController extends GetxController {
   Future<void> fetchAllColors() async {
     try {
       colorLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}variants/list?type=Color";
+      final url = "${await AppStrings.getBaseUrlV1()}variants/list?type=Color";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = List<Map<String, dynamic>>.from(jsonResponse["data"]);
@@ -161,7 +161,7 @@ class ProductDependencyController extends GetxController {
   Future<void> fetchAllSize() async {
     try {
       sizeLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}variants/list?type=Size";
+      final url = "${await AppStrings.getBaseUrlV1()}variants/list?type=Size";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = List<Map<String, dynamic>>.from(jsonResponse["data"]);
@@ -181,7 +181,7 @@ class ProductDependencyController extends GetxController {
   Future<void> fetchAllTaxPercents() async {
     try {
       taxLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}taxes/list";
+      final url = "${await AppStrings.getBaseUrlV1()}taxes/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = List<Map<String, dynamic>>.from(jsonResponse["data"]);
@@ -201,7 +201,7 @@ class ProductDependencyController extends GetxController {
   Future<void> fetchProductCode() async {
     try {
       productCodeLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}products/code";
+      final url = "${await AppStrings.getBaseUrlV1()}products/code";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = Map<String, dynamic>.from(jsonResponse["data"]);
@@ -221,7 +221,7 @@ class ProductDependencyController extends GetxController {
   Future<void> fetchAllTypes() async {
     try {
       getAllTypesLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}types/list";
+      final url = "${await AppStrings.getBaseUrlV1()}types/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = List<Map<String, dynamic>>.from(jsonResponse["data"]);
@@ -241,7 +241,7 @@ class ProductDependencyController extends GetxController {
   Future<void> fetchAllBrands() async {
     try {
       getAllBrandsLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}brands/list";
+      final url = "${await AppStrings.getBaseUrlV1()}brands/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = jsonResponse["data"] as List;
@@ -271,7 +271,7 @@ class ProductDependencyController extends GetxController {
   Future<void> fetchAllVariants() async {
     try {
       getAllVariantsLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}variants/list";
+      final url = "${await AppStrings.getBaseUrlV1()}variants/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = jsonResponse["data"] as List;
@@ -296,7 +296,7 @@ class ProductDependencyController extends GetxController {
   Future<void> fetchAllSuppliers() async {
     try {
       getAllSuppliersLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}suppliers/list";
+      final url = "${await AppStrings.getBaseUrlV1()}suppliers/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = jsonResponse["data"] as List;
@@ -363,7 +363,7 @@ class ProductDependencyController extends GetxController {
   Future<List<Map<String, dynamic>>> fetchAllWareHouse() async {
     try {
       getAllWareHouseLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}warehouses/list";
+      final url = "${await AppStrings.getBaseUrlV1()}warehouses/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = jsonResponse["data"] as List;
@@ -413,7 +413,7 @@ class ProductDependencyController extends GetxController {
   Future<void> fetchAllCompany() async {
     try {
       getAllCompanyLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}company/list";
+      final url = "${await AppStrings.getBaseUrlV1()}company/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = jsonResponse["data"] as List;
@@ -440,7 +440,7 @@ class ProductDependencyController extends GetxController {
     try {
       getAllUnitLoading.value = true;
 
-      const url = "${AppStrings.baseUrlV1}units/list";
+      final url = "${await AppStrings.getBaseUrlV1()}units/list";
       final jsonResponse = await _apiServices.getApiV2(url);
 
       if (jsonResponse != null && jsonResponse["data"] != null) {
@@ -466,7 +466,7 @@ class ProductDependencyController extends GetxController {
   Future<void> fetchAllBarcode() async {
     try {
       getAllBarcodeLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}barcodes/list";
+      final url = "${await AppStrings.getBaseUrlV1()}barcodes/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = jsonResponse["data"] as List;
@@ -492,7 +492,7 @@ class ProductDependencyController extends GetxController {
   Future<void> fetchAllCustomers() async {
     try {
       getAllCustomerLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}customers/list";
+      final url = "${await AppStrings.getBaseUrlV1()}customers/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = jsonResponse["data"] as List;
@@ -526,7 +526,7 @@ class ProductDependencyController extends GetxController {
   Future<void> fetchAllBillers() async {
     try {
       getAllBillersLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}billers/list";
+      final url = "${await AppStrings.getBaseUrlV1()}billers/list";
       final jsonResponse = await _apiServices.getApiV2(url);
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = jsonResponse["data"] as List;
@@ -582,7 +582,8 @@ class ProductController extends GetxController {
     try {
       deleteLoading.value = true;
 
-      final String url = "${AppStrings.baseUrlV1}products/delete/$id";
+      final String url =
+          "${await AppStrings.getBaseUrlV1()}products/delete/$id";
       final jsonResponse = await _apiServices.deleteApiV2(url);
 
       if (jsonResponse != null && jsonResponse["success"] == true) {
@@ -631,7 +632,7 @@ class ProductController extends GetxController {
       }
 
       isLoading.value = true;
-      const url = "${AppStrings.baseUrlV1}products/list";
+      final url = "${await AppStrings.getBaseUrlV1()}products/list";
       final jsonResponse = await _apiServices.getApiV2(url);
 
       if (jsonResponse?["data"] != null) {
@@ -820,7 +821,7 @@ class CreateProductController extends GetxController {
           discountType.value == 'Fixed' || discountType.value == ''
               ? discountType.value = 'Fixed'
               : discountType.value;
-      final url = Uri.parse("${AppStrings.baseUrlV1}products/save");
+      final url = Uri.parse("${await AppStrings.getBaseUrlV1()}products/save");
 
       final headers = {
         'Content-Type': 'application/json',
@@ -989,8 +990,8 @@ class UpdateProductController extends GetxController {
           : discountType.value;
       final productID = productObj['id'] ?? '';
 
-      final url =
-          Uri.parse("${AppStrings.baseUrlV1}products/update/$productID");
+      final url = Uri.parse(
+          "${await AppStrings.getBaseUrlV1()}products/update/$productID");
       final headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
