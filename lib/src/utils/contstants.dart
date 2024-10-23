@@ -50,13 +50,30 @@ class AppStrings {
   static const appName = "Inventual Flutter Laravel";
   static const defaultBaseUrlV1 = "https://inventual.app/api/v1/";
   static const baseImgURL = "https://inventual.bdevs.net/storage/";
+  // static const defaultBaseImageUrl = "https://inventual.app/storage/";
 
   static Future<String> getBaseUrlV1() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? supplierKey = prefs.getString("supplier_key");
-    if (supplierKey == null || supplierKey.isEmpty) {
+    if (supplierKey == null) {
       return defaultBaseUrlV1;
     }
     return "https://$supplierKey.inventual.app/api/v1/";
   }
+
+  // static Future<String> getBaseImageUrl() async {
+  //   final SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   final String? supplierKey = prefs.getString("supplier_key");
+  //
+  //   if (supplierKey == null) {
+  //     return defaultBaseImageUrl;
+  //   }
+  //
+  //   return "https://$supplierKey.inventual.app/storage/$supplierKey/";
+  // }
+  //
+  // static Future<String> getImageUrl(String imagePath) async {
+  //   final String baseImageUrl = await getBaseImageUrl();
+  //   return "$baseImageUrl$imagePath";
+  // }
 }

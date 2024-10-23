@@ -40,7 +40,6 @@ class _SplashScreenState extends State<SplashScreen>
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final user = prefs.getString("user");
     final String? supplierKey = prefs.getString("supplier_key");
-    final String? token = prefs.getString("token");
     if (user != null) {
       final decodeUser = json.decode(user);
       final token = decodeUser["token"];

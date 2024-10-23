@@ -251,7 +251,6 @@ class ProductDependencyController extends GetxController {
           String imageUrl = images.isNotEmpty
               ? "${AppStrings.baseImgURL}${images[0]["path"]}"
               : '';
-          print("Image URL : $imageUrl");
           return {
             "title": item["title"] ?? '',
             "id": item["id"] as int? ?? 0,
