@@ -84,6 +84,12 @@ class FindSupplierMain extends StatelessWidget {
                               findSupplierController.supplierName.value = "";
                               findSupplierController.supplierName.value =
                                   value!;
+                              findSupplierController.supplierKey.value = "";
+                              findSupplierController.supplierKey.value =
+                                  findSupplierController.supplierList
+                                      .firstWhere((supplier) =>
+                                          supplier.storeName == value)
+                                      .supplierKey!;
                               findSupplierController.supplierId.value = 0;
                               findSupplierController.supplierId.value =
                                   findSupplierController.supplierList
@@ -93,7 +99,7 @@ class FindSupplierMain extends StatelessWidget {
                             }),
                     ),
                     SizedBox(height: 15.h),
-                    _buildVerifyButton(),
+                    _buildVerifyButton(findSupplierController),
                     SizedBox(height: 70.h),
                   ],
                 ),
@@ -164,7 +170,7 @@ class FindSupplierMain extends StatelessWidget {
     );
   }
 
-  Widget _buildVerifyButton() {
+  Widget _buildVerifyButton(FindSupplierController findSupplierController) {
     return Container(
       decoration: BoxDecoration(
         boxShadow: [
@@ -180,7 +186,7 @@ class FindSupplierMain extends StatelessWidget {
       child: CustomElevatedButton(
         buttonColor: ColorSchema.primaryColor,
         buttonName: "Verify",
-        onPressed: () {},
+        onPressed: () => findSupplierController.supplierVerify(),
         buttonRadius: 50,
       ),
     );

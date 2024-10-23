@@ -1,7 +1,10 @@
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:inventual/src/network/services/network_api_services.dart';
 import 'package:inventual/src/presentation/screens/authentication/model/find_supplier_model.dart';
+import 'package:inventual/src/routes/app_routes.dart';
 import 'package:inventual/src/utils/contstants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FindSupplierController extends GetxController {
   final NetworkApiServices _apiServices = NetworkApiServices();
@@ -21,6 +24,7 @@ class FindSupplierController extends GetxController {
   // Area Variable
   final RxBool supplierProgress = false.obs;
   final RxString supplierName = "".obs;
+  final RxString supplierKey = "".obs;
   final RxInt supplierId = 0.obs;
   final List<SupplierData> supplierList = <SupplierData>[].obs;
 
@@ -38,11 +42,13 @@ class FindSupplierController extends GetxController {
       final String url = "${AppStrings.baseUrlV2}district/list?country_id=1";
       final response = await _apiServices.getApiBeforeAuthentication(url);
       final responseData = DistrictModel.fromJson(response);
+      districtList.clear();
       districtList.addAll(responseData.data!);
     } finally {
       districtProgress.value = false;
     }
   }
+
   // District Function End
   // ------------------------------------------------------------------------ //
 
@@ -55,15 +61,17 @@ class FindSupplierController extends GetxController {
           "${AppStrings.baseUrlV2}area/list?district_id=$districtId";
       final response = await _apiServices.getApiBeforeAuthentication(url);
       final responseData = AreaModel.fromJson(response);
+      areaList.clear();
       areaList.addAll(responseData.data!);
     } finally {
       areaProgress.value = false;
     }
   }
+
   // Area Function End
   // ------------------------------------------------------------------------ //
 
-// ------------------------------------------------------------------------ //
+  // ------------------------------------------------------------------------ //
   // Supplier Function Start
   Future<void> getSupplier() async {
     try {
@@ -72,11 +80,58 @@ class FindSupplierController extends GetxController {
           "${AppStrings.baseUrlV2}suppliers/stores?area_id=$areaId";
       final response = await _apiServices.getApiBeforeAuthentication(url);
       final responseData = SupplierModel.fromJson(response);
+      supplierList.clear();
       supplierList.addAll(responseData.data!);
     } finally {
       supplierProgress.value = false;
     }
   }
+
   // Supplier Function End
+  // ------------------------------------------------------------------------ //
+
+  // ------------------------------------------------------------------------ //
+  // Verify Function Start
+  Future<void> supplierVerify() async {
+    if (districtName.isEmpty && districtId.value <= 0) {
+      Fluttertoast.showToast(
+          msg: "Please select a District before proceeding.",
+          backgroundColor: ColorSchema.danger,
+          textColor: ColorSchema.white);
+    } else if (areaName.isEmpty && areaId.value <= 0) {
+      Fluttertoast.showToast(
+          msg: "Please select a Area before proceeding.",
+          backgroundColor: ColorSchema.danger,
+          textColor: ColorSchema.white);
+    } else if (supplierName.isEmpty &&
+        supplierId.value <= 0 &&
+        supplierKey.isEmpty) {
+      Fluttertoast.showToast(
+          msg: "Please select a Supplier before proceeding.",
+          backgroundColor: ColorSchema.danger,
+          textColor: ColorSchema.white);
+    } else {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setString('supplier_key', supplierKey.toString());
+      Get.offNamed(AppRoutes.login);
+      clearFilteredValue();
+    }
+  }
+  // Verify Function End
+  // ------------------------------------------------------------------------ //
+
+  // ------------------------------------------------------------------------ //
+  // Clear Filtered Value Function Start
+  void clearFilteredValue() {
+    districtName.value = "";
+    districtId.value;
+    0;
+    areaName.value = "";
+    areaId.value = 0;
+    supplierName.value = "";
+    supplierId.value = 0;
+    supplierKey.value = "";
+  }
+  // Clear Filtered Value Function End
   // ------------------------------------------------------------------------ //
 }
