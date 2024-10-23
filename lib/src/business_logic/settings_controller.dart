@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:get/get.dart';
 import 'package:inventual/src/network/services/network_api_services.dart';
 import 'package:inventual/src/utils/contstants.dart';
@@ -25,7 +26,7 @@ class SettingsController extends GetxController {
     try {
       isLoading.value = true;
       const url = "${AppStrings.baseUrlV1}settings/all";
-      final jsonResponse = await _apiServices.getApiV2(url);
+      final jsonResponse = await _apiServices.getApiBeforeAuthentication(url);
 
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final settingsData = jsonResponse["data"]["settings"];

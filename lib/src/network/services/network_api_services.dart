@@ -60,6 +60,26 @@ class NetworkApiServices extends BaseApi {
     }
   }
 
+  Future<dynamic> getApiBeforeAuthentication(String url) async {
+    if (kDebugMode) {
+      print('GET URL: $url');
+    }
+
+    try {
+      final response = await http.get(Uri.parse(url));
+
+      return _returnResponse(response);
+    } on SocketException {
+      throw InternetException();
+    } on http.ClientException {
+      throw InternetException();
+    } on TimeoutException {
+      throw RequestTimeOutException();
+    } catch (e) {
+      throw FetchDataException('An unexpected error occurred: $e');
+    }
+  }
+
   Future<dynamic> getApiV2(String url) async {
     if (kDebugMode) {
       print('GET URL: $url');

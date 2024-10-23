@@ -38,7 +38,7 @@ class FindSupplierMain extends StatelessWidget {
                             : findSupplierController.districtList
                                 .where((district) => district.title != null)
                                 .map((district) => district.title!)
-                                .toList(), (String? value) {
+                                .toList(), (String? value) async {
                       findSupplierController.districtName.value = "";
                       findSupplierController.districtName.value = value!;
                       findSupplierController.districtId.value = 0;
@@ -46,12 +46,52 @@ class FindSupplierMain extends StatelessWidget {
                           findSupplierController.districtList
                               .firstWhere((district) => district.title == value)
                               .id!;
+                      await findSupplierController.getArea();
                     }),
                     SizedBox(height: 15.h),
-                    _buildDropdownField("Select Area", [], (String? value) {}),
+                    Obx(() => findSupplierController.areaProgress.value
+                        ? CustomLoading(opacity: true)
+                        : _buildDropdownField(
+                            "Select Area",
+                            findSupplierController.areaList.isEmpty
+                                ? ["Area Not Found"]
+                                : findSupplierController.areaList
+                                    .where((area) => area.title != null)
+                                    .map((area) => area.title!)
+                                    .toList(), (String? value) async {
+                            findSupplierController.areaName.value = "";
+                            findSupplierController.areaName.value = value!;
+                            findSupplierController.areaId.value = 0;
+                            findSupplierController.areaId.value =
+                                findSupplierController.areaList
+                                    .firstWhere((area) => area.title == value)
+                                    .id!;
+                            await findSupplierController.getSupplier();
+                          })),
                     SizedBox(height: 15.h),
-                    _buildDropdownField(
-                        "Select Supplier", [], (String? value) {}),
+                    Obx(
+                      () => findSupplierController.supplierProgress.value
+                          ? CustomLoading(opacity: true)
+                          : _buildDropdownField(
+                              "Select Supplier",
+                              findSupplierController.supplierList.isEmpty
+                                  ? ["Supplier Not Found"]
+                                  : findSupplierController.supplierList
+                                      .where((supplier) =>
+                                          supplier.storeName != null)
+                                      .map((supplier) => supplier.storeName!)
+                                      .toList(), (String? value) async {
+                              findSupplierController.supplierName.value = "";
+                              findSupplierController.supplierName.value =
+                                  value!;
+                              findSupplierController.supplierId.value = 0;
+                              findSupplierController.supplierId.value =
+                                  findSupplierController.supplierList
+                                      .firstWhere((supplier) =>
+                                          supplier.storeName == value)
+                                      .id!;
+                            }),
+                    ),
                     SizedBox(height: 15.h),
                     _buildVerifyButton(),
                     SizedBox(height: 70.h),
