@@ -44,12 +44,12 @@ class SettingsController extends GetxController {
           String siteUrl = settingsData["general"]["site_url"] ??
               'https://inventual.bdevs.net';
           String appName = settingsData["general"]["app_name"] ?? 'Inventual';
-          String siteLogo =
-              "${AppStrings.baseImgURL}${settingsData["general"]["site_logo"] ?? 'assets/images/logo/logo.png'}";
-          String adminLogo =
-              "${AppStrings.baseImgURL}${settingsData["general"]["admin_logo"] ?? 'assets/images/avatar/placeholder-user.png'}";
+          String siteLogo = await AppStrings.getImageUrl(
+              settingsData["general"]["site_logo"]);
+          String adminLogo = await AppStrings.getImageUrl(
+              settingsData["general"]["admin_logo"]);
           String favicon =
-              "${AppStrings.baseImgURL}${settingsData["general"]["favicon"] ?? ''}";
+              await AppStrings.getImageUrl(settingsData["general"]["favicon"]);
 
           // Create a settings map to store in SharedPreferences
           Map<String, dynamic> settings = {

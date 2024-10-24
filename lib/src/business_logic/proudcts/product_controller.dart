@@ -246,10 +246,11 @@ class ProductDependencyController extends GetxController {
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = jsonResponse["data"] as List;
         brandList.clear();
-        brandList.addAll(data.map((item) {
+        final List<Map<String, dynamic>> resolvedBrands =
+            await Future.wait(data.map((item) async {
           final images = item["images"] as List<dynamic>;
           String imageUrl = images.isNotEmpty
-              ? "${AppStrings.baseImgURL}${images[0]["path"]}"
+              ? await AppStrings.getImageUrl(images[0]["path"])
               : '';
           return {
             "title": item["title"] ?? '',
@@ -257,6 +258,7 @@ class ProductDependencyController extends GetxController {
             "image": imageUrl,
           };
         }).toList());
+        brandList.addAll(resolvedBrands);
         getAllBrandsLoading.value = false;
       } else {
         getAllBrandsLoading.value = false;
@@ -624,21 +626,18 @@ class ProductController extends GetxController {
     try {
       final prefs = await SharedPreferences.getInstance();
       final settingsString = prefs.getString('settings') ?? '';
-
       String currencySymbol = '';
       if (settingsString.isNotEmpty) {
         final settings = jsonDecode(settingsString);
         currencySymbol = settings['currency_symbol'] ?? '\$';
       }
-
       isLoading.value = true;
       final url = "${await AppStrings.getBaseUrlV1()}products/list";
       final jsonResponse = await _apiServices.getApiV2(url);
-
       if (jsonResponse?["data"] != null) {
         productList.clear();
-        productList.addAll(
-          (jsonResponse["data"] as List).map((item) {
+        final List<Map<String, dynamic>> resolvedProducts = await Future.wait(
+          (jsonResponse["data"] as List).map((item) async {
             final categories = item["categories"] as List?;
             final colors = item["color_variant"] as List?;
             final sizes = item["size_variant"] as List?;
@@ -660,7 +659,7 @@ class ProductController extends GetxController {
             final sizeTitle =
                 sizes?.isNotEmpty == true ? sizes![0]["name"].toString() : '';
             final image = images?.isNotEmpty == true
-                ? "${AppStrings.baseImgURL}${images![0]["path"] ?? ''}"
+                ? await AppStrings.getImageUrl(images![0]["path"])
                 : '';
             final brand = item["brand"]?['title'] ?? 'No Brand Found';
             final supplierFirstName = item["supplier"]?['first_name'] ?? '';
@@ -671,7 +670,6 @@ class ProductController extends GetxController {
             final unit = item["unit"]?['name'] ?? 'No unit Found';
             final unitID = item["unit"]?["id"].toString() ?? '';
             final isFeatured = item["is_featured"] ?? 0;
-
             final createdAtString = item["created_at"] ?? '';
             final formattedCreatedAt = createdAtString.isNotEmpty
                 ? DateFormat('yyyy-MM-dd').format(
@@ -679,10 +677,8 @@ class ProductController extends GetxController {
                         .parse(createdAtString, true)
                         .toLocal())
                 : '';
-
             String purchaseDateAt = formattedCreatedAt;
             String formattedDate = '';
-
             if (purchaseDateAt.isNotEmpty) {
               try {
                 final DateTime parsedDate = DateTime.parse(purchaseDateAt);
@@ -691,7 +687,6 @@ class ProductController extends GetxController {
                 formattedDate = purchaseDateAt;
               }
             }
-
             return {
               "title": item["title"] ?? '',
               "is_featured": item["is_featured"] ?? '',
@@ -732,6 +727,7 @@ class ProductController extends GetxController {
             };
           }).toList(),
         );
+        productList.addAll(resolvedProducts);
         productList.refresh();
       } else {
         productList.clear();

@@ -168,7 +168,7 @@ class UserListController extends GetxController {
       if (jsonResponse != null && jsonResponse["data"] != null) {
         final data = jsonResponse["data"] as List;
         usersList.clear();
-        usersList.addAll(data.map((item) {
+        final fetchedUsers = await Future.wait(data.map((item) async {
           final imagePath =
               item["image"] != null ? item["image"]["path"] as String : null;
           final roles = item["roles"] as List?;
@@ -176,14 +176,12 @@ class UserListController extends GetxController {
           final userRole = roles != null && roles.isNotEmpty
               ? roles.map((role) => role["name"] as String).join(", ")
               : "No Role Assigned";
-
           final userRoleId = roles != null && roles.isNotEmpty
               ? roles.map((role) => role["id"].toString()).join(", ")
               : "No Role ID";
-
-          final fullImageUrl =
-              imagePath != null ? "${AppStrings.baseImgURL}$imagePath" : null;
-
+          final fullImageUrl = imagePath != null
+              ? await AppStrings.getImageUrl(imagePath)
+              : null;
           final createdAtString = item["created_at"] ?? '';
           final formattedCreatedAt = createdAtString.isNotEmpty
               ? DateFormat('yyyy-MM-dd').format(
@@ -191,10 +189,8 @@ class UserListController extends GetxController {
                       .parse(createdAtString, true)
                       .toLocal())
               : '';
-
           String userCreateDateAt = formattedCreatedAt;
           String formattedDate = '';
-
           if (userCreateDateAt.isNotEmpty) {
             try {
               final DateTime parsedDate = DateTime.parse(userCreateDateAt);
@@ -203,7 +199,6 @@ class UserListController extends GetxController {
               formattedDate = userCreateDateAt;
             }
           }
-
           return {
             "id": item["id"] as int? ?? 0,
             "first_name": item["first_name"] as String? ?? '',
@@ -220,7 +215,7 @@ class UserListController extends GetxController {
             "date": formattedDate,
           };
         }).toList());
-
+        usersList.addAll(fetchedUsers);
         usersList.refresh();
       }
     } finally {

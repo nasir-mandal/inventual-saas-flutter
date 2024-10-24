@@ -203,7 +203,7 @@ class CategoryController extends GetxController {
 
           String imagePath = '';
           if (item["images"] != null && item["images"].isNotEmpty) {
-            imagePath = "${AppStrings.baseImgURL}${item["images"][0]["path"]}";
+            imagePath = await AppStrings.getImageUrl(item["images"][0]["path"]);
           }
 
           dynamicCategoryList.add({
@@ -271,7 +271,7 @@ class CategoryController extends GetxController {
 
           String imagePath = '';
           if (item["images"] != null && item["images"].isNotEmpty) {
-            imagePath = "${AppStrings.baseImgURL}${item["images"][0]["path"]}";
+            imagePath = await AppStrings.getImageUrl(item["images"][0]["path"]);
           }
 
           allCategoryList.add({

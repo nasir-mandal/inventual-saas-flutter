@@ -33,7 +33,7 @@ class UserAuthenticationController extends GetxController {
         await prefs.setString("token", userData["bearer_token"] ?? '');
         String? imagePath;
         if (userData["image"] != null && userData["image"]["path"] != null) {
-          imagePath = "${AppStrings.baseImgURL}${userData["image"]["path"]}";
+          imagePath = await AppStrings.getImageUrl(userData["image"]["path"]);
         }
         int roleId = (userData["roles"] != null && userData["roles"].isNotEmpty)
             ? userData["roles"][0]['id'] ?? 0
