@@ -9,6 +9,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 class FindSupplierController extends GetxController {
   final NetworkApiServices _apiServices = NetworkApiServices();
 
+  // Verify Progress
+  final RxBool verifyProgress = false.obs;
+
   // District Variable
   final RxBool districtProgress = false.obs;
   final RxString districtName = "".obs;
@@ -112,10 +115,14 @@ class FindSupplierController extends GetxController {
           backgroundColor: ColorSchema.danger,
           textColor: ColorSchema.white);
     } else {
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setString('supplier_key', supplierKey.toString());
-      Get.offNamed(AppRoutes.login);
-      clearFilteredValue();
+      verifyProgress.value = true;
+      Future.delayed(Duration(seconds: 1), () async {
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        await prefs.setString('supplier_key', supplierKey.toString());
+        Get.offNamed(AppRoutes.login);
+        clearFilteredValue();
+        verifyProgress.value = true;
+      });
     }
   }
   // Verify Function End

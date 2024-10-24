@@ -17,93 +17,106 @@ class FindSupplierMain extends StatelessWidget {
         Get.put(FindSupplierController());
 
     return Scaffold(
-      body: Obx(
-        () => findSupplierController.districtProgress.value
-            ? const CustomLoading(opacity: true)
-            : Container(
-                decoration: _buildGradientBackground(),
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    _buildAvatar(),
-                    SizedBox(height: 5.h),
-                    _buildTitle(),
-                    SizedBox(height: 40.h),
-                    _buildDropdownField(
-                        "Select District",
-                        findSupplierController.districtList.isEmpty
-                            ? ["District Not Found"]
-                            : findSupplierController.districtList
-                                .where((district) => district.title != null)
-                                .map((district) => district.title!)
-                                .toList(), (String? value) async {
-                      findSupplierController.districtName.value = "";
-                      findSupplierController.districtName.value = value!;
-                      findSupplierController.districtId.value = 0;
-                      findSupplierController.districtId.value =
-                          findSupplierController.districtList
-                              .firstWhere((district) => district.title == value)
-                              .id!;
-                      await findSupplierController.getArea();
-                    }),
-                    SizedBox(height: 15.h),
-                    Obx(() => findSupplierController.areaProgress.value
-                        ? CustomLoading(opacity: true)
-                        : _buildDropdownField(
-                            "Select Area",
-                            findSupplierController.areaList.isEmpty
-                                ? ["Area Not Found"]
-                                : findSupplierController.areaList
-                                    .where((area) => area.title != null)
-                                    .map((area) => area.title!)
+      body: Stack(
+        children: [
+          Obx(
+            () => findSupplierController.districtProgress.value
+                ? const CustomLoading(opacity: true)
+                : Container(
+                    decoration: _buildGradientBackground(),
+                    padding: EdgeInsets.symmetric(horizontal: 16.w),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        _buildAvatar(),
+                        SizedBox(height: 5.h),
+                        _buildTitle(),
+                        SizedBox(height: 40.h),
+                        _buildDropdownField(
+                            "Select District",
+                            findSupplierController.districtList.isEmpty
+                                ? ["District Not Found"]
+                                : findSupplierController.districtList
+                                    .where((district) => district.title != null)
+                                    .map((district) => district.title!)
                                     .toList(), (String? value) async {
-                            findSupplierController.areaName.value = "";
-                            findSupplierController.areaName.value = value!;
-                            findSupplierController.areaId.value = 0;
-                            findSupplierController.areaId.value =
-                                findSupplierController.areaList
-                                    .firstWhere((area) => area.title == value)
-                                    .id!;
-                            await findSupplierController.getSupplier();
-                          })),
-                    SizedBox(height: 15.h),
-                    Obx(
-                      () => findSupplierController.supplierProgress.value
-                          ? CustomLoading(opacity: true)
-                          : _buildDropdownField(
-                              "Select Supplier",
-                              findSupplierController.supplierList.isEmpty
-                                  ? ["Supplier Not Found"]
-                                  : findSupplierController.supplierList
-                                      .where((supplier) =>
-                                          supplier.storeName != null)
-                                      .map((supplier) => supplier.storeName!)
-                                      .toList(), (String? value) async {
-                              findSupplierController.supplierName.value = "";
-                              findSupplierController.supplierName.value =
-                                  value!;
-                              findSupplierController.supplierKey.value = "";
-                              findSupplierController.supplierKey.value =
-                                  findSupplierController.supplierList
-                                      .firstWhere((supplier) =>
-                                          supplier.storeName == value)
-                                      .supplierKey!;
-                              findSupplierController.supplierId.value = 0;
-                              findSupplierController.supplierId.value =
-                                  findSupplierController.supplierList
-                                      .firstWhere((supplier) =>
-                                          supplier.storeName == value)
-                                      .id!;
-                            }),
+                          findSupplierController.districtName.value = "";
+                          findSupplierController.districtName.value = value!;
+                          findSupplierController.districtId.value = 0;
+                          findSupplierController.districtId.value =
+                              findSupplierController.districtList
+                                  .firstWhere(
+                                      (district) => district.title == value)
+                                  .id!;
+                          await findSupplierController.getArea();
+                        }),
+                        SizedBox(height: 15.h),
+                        Obx(() => findSupplierController.areaProgress.value
+                            ? CustomLoading(opacity: true)
+                            : _buildDropdownField(
+                                "Select Area",
+                                findSupplierController.areaList.isEmpty
+                                    ? ["Area Not Found"]
+                                    : findSupplierController.areaList
+                                        .where((area) => area.title != null)
+                                        .map((area) => area.title!)
+                                        .toList(), (String? value) async {
+                                findSupplierController.areaName.value = "";
+                                findSupplierController.areaName.value = value!;
+                                findSupplierController.areaId.value = 0;
+                                findSupplierController.areaId.value =
+                                    findSupplierController.areaList
+                                        .firstWhere(
+                                            (area) => area.title == value)
+                                        .id!;
+                                await findSupplierController.getSupplier();
+                              })),
+                        SizedBox(height: 15.h),
+                        Obx(
+                          () => findSupplierController.supplierProgress.value
+                              ? CustomLoading(opacity: true)
+                              : _buildDropdownField(
+                                  "Select Supplier",
+                                  findSupplierController.supplierList.isEmpty
+                                      ? ["Supplier Not Found"]
+                                      : findSupplierController.supplierList
+                                          .where((supplier) =>
+                                              supplier.storeName != null)
+                                          .map(
+                                              (supplier) => supplier.storeName!)
+                                          .toList(), (String? value) async {
+                                  findSupplierController.supplierName.value =
+                                      "";
+                                  findSupplierController.supplierName.value =
+                                      value!;
+                                  findSupplierController.supplierKey.value = "";
+                                  findSupplierController.supplierKey.value =
+                                      findSupplierController.supplierList
+                                          .firstWhere((supplier) =>
+                                              supplier.storeName == value)
+                                          .supplierKey!;
+                                  findSupplierController.supplierId.value = 0;
+                                  findSupplierController.supplierId.value =
+                                      findSupplierController.supplierList
+                                          .firstWhere((supplier) =>
+                                              supplier.storeName == value)
+                                          .id!;
+                                }),
+                        ),
+                        SizedBox(height: 15.h),
+                        _buildVerifyButton(findSupplierController),
+                        SizedBox(height: 70.h),
+                      ],
                     ),
-                    SizedBox(height: 15.h),
-                    _buildVerifyButton(findSupplierController),
-                    SizedBox(height: 70.h),
-                  ],
-                ),
-              ),
+                  ),
+          ),
+          Obx(() => findSupplierController.verifyProgress.value
+              ? CustomLoading(
+                  opacity: findSupplierController.verifyProgress.value,
+                )
+              : const SizedBox()),
+        ],
       ),
     );
   }

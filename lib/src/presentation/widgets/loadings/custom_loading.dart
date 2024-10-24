@@ -18,7 +18,7 @@ class CustomLoading extends StatelessWidget {
         opacity: opacity ? 1.0 : 0.0,
         duration: const Duration(milliseconds: 500),
         child: Container(
-          color: ColorSchema.primaryColor.withOpacity(0.2),
+          color: ColorSchema.primaryColor.withOpacity(0.15),
           child: const Center(
             child: GFLoader(
               size: GFSize.LARGE,
