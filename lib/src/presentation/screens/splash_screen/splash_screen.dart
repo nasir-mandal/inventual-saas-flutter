@@ -68,9 +68,13 @@ class _SplashScreenState extends State<SplashScreen>
         width: double.maxFinite,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
+            colors: [
+              ColorSchema.primaryColor,
+              ColorSchema.secondaryColor,
+            ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [ColorSchema.splashColor1, ColorSchema.splashColor2],
+            stops: [0.5, 1.0],
           ),
         ),
         child: Column(
@@ -84,13 +88,26 @@ class _SplashScreenState extends State<SplashScreen>
                   Expanded(
                     child: ScaleTransition(
                       scale: _animation,
-                      child: CircleAvatar(
-                        backgroundColor: ColorSchema.white,
-                        radius: MediaQuery.of(context).size.width * 0.2,
-                        child: Padding(
-                          padding: REdgeInsets.all(15),
-                          child: Image.asset(
-                            "assets/images/logo/login-logo.png",
+                      child: Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: ColorSchema.black.withOpacity(0.25),
+                              blurRadius: 10,
+                              spreadRadius: 2,
+                              offset: const Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        child: CircleAvatar(
+                          backgroundColor: ColorSchema.white,
+                          radius: MediaQuery.of(context).size.width * 0.2,
+                          child: Padding(
+                            padding: REdgeInsets.all(15),
+                            child: Image.asset(
+                              "assets/images/logo/login-logo.png",
+                            ),
                           ),
                         ),
                       ),
@@ -110,7 +127,7 @@ class _SplashScreenState extends State<SplashScreen>
                           ),
                         ),
                         Text(
-                          "V 1.0.1",
+                          "V 1.0.0",
                           style: GoogleFonts.nunito(
                             color: ColorSchema.white,
                             fontSize: 16,
