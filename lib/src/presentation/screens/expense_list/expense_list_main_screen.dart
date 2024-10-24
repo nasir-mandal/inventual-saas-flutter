@@ -23,6 +23,7 @@ class ExpenseListMainScreen extends StatefulWidget {
 class _ExpenseListMainScreenState extends State<ExpenseListMainScreen> {
   final ExpenseListController expenseListController = ExpenseListController();
   late Map<String, dynamic> user = {};
+
   @override
   void initState() {
     expenseListController.fetchExpenseReport();
@@ -45,7 +46,9 @@ class _ExpenseListMainScreenState extends State<ExpenseListMainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final permission = user['userPermissions'];
+    // Check if userPermissions is available, if not, default to an empty map
+    final permission = user['userPermissions'] ?? {};
+
     return Scaffold(
         appBar: const PreferredSize(
           preferredSize: Size.fromHeight(60),
@@ -90,7 +93,7 @@ class _ExpenseListMainScreenState extends State<ExpenseListMainScreen> {
         ),
         floatingActionButton: CustomFloatingActionButton(
             buttonName: "Add Expense",
-            routeName: permission['add_permission_expenses']
+            routeName: permission['add_permission_expenses'] == true
                 ? AppRoutes.expense
                 : AppRoutes.noPermission));
   }

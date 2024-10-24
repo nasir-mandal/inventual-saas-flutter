@@ -24,12 +24,12 @@ class CustomerMainScreen extends StatefulWidget {
 
 class _CustomerMainScreenState extends State<CustomerMainScreen> {
   final CustomerController customerController = CustomerController();
-
   final controller = SidebarXController(selectedIndex: 1, extended: true);
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
   late TextEditingController _searchController;
   late Map<String, dynamic> user = {};
   String searchQuery = "";
+
   @override
   void initState() {
     customerController.fetchAllCustomers();
@@ -59,16 +59,20 @@ class _CustomerMainScreenState extends State<CustomerMainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final permission = user['userPermissions'];
+    // Check if user and userPermissions are available
+    final permission =
+        user['userPermissions'] ?? {}; // Use an empty map if null
     final isSmallScreen = MediaQuery.of(context).size.width < 600;
     List<Map<String, dynamic>> filteredCustomer =
         customerController.customerList;
+
     if (searchQuery.isNotEmpty) {
       filteredCustomer = filteredCustomer.where((item) {
         return item["name"].toLowerCase().contains(searchQuery.toLowerCase());
       }).toList();
       searchQuery = "";
     }
+
     return Scaffold(
       key: _key,
       endDrawer: DashboardDrawer(routeName: "Customer", controller: controller),
@@ -168,10 +172,11 @@ class _CustomerMainScreenState extends State<CustomerMainScreen> {
         ),
       ),
       floatingActionButton: CustomFloatingActionButton(
-          buttonName: "Create Customer",
-          routeName: permission['add_permission_customers']
-              ? AppRoutes.addCustomer
-              : AppRoutes.noPermission),
+        buttonName: "Create Customer",
+        routeName: permission['add_permission_customers'] == true
+            ? AppRoutes.addCustomer
+            : AppRoutes.noPermission,
+      ),
     );
   }
 }

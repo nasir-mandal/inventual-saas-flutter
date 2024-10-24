@@ -25,6 +25,7 @@ class _WarehouseMainScreenState extends State<WarehouseMainScreen> {
   late TextEditingController _searchController;
   String searchQuery = "";
   late Map<String, dynamic> user = {};
+
   @override
   void initState() {
     _controller.getAllWareHouse();
@@ -54,8 +55,11 @@ class _WarehouseMainScreenState extends State<WarehouseMainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final permission = user['userPermissions'];
+    // Add null check for permissions
+    final permission =
+        user['userPermissions'] ?? {}; // Use empty map as fallback
     List<Map<String, dynamic>> filteredWareHouse = _controller.wareHouseList;
+
     if (searchQuery.isNotEmpty) {
       filteredWareHouse = filteredWareHouse.where((item) {
         return item["title"].toLowerCase().contains(searchQuery.toLowerCase());
@@ -126,9 +130,9 @@ class _WarehouseMainScreenState extends State<WarehouseMainScreen> {
       ),
       floatingActionButton: CustomFloatingActionButton(
         buttonName: "Add Warehouse",
-        routeName: permission['add_permission_warehouses']
+        routeName: permission['add_permission_warehouses'] == true
             ? AppRoutes.addWarehouse
-            : AppRoutes.noPermission,
+            : AppRoutes.noPermission, // Handle permission check
       ),
     );
   }

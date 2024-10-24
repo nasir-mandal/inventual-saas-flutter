@@ -60,7 +60,8 @@ class _ProductsMainScreenState extends State<ProductsMainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final permission = user['userPermissions'];
+    final permission =
+        user['userPermissions'] ?? {}; // Fallback to empty map if null
     final isSmallScreen = MediaQuery.of(context).size.width < 600;
     return Scaffold(
       key: _key,
@@ -180,9 +181,9 @@ class _ProductsMainScreenState extends State<ProductsMainScreen> {
       }),
       floatingActionButton: CustomFloatingActionButton(
         buttonName: "Add Product",
-        routeName: permission['add_permission_products']
+        routeName: permission['add_permission_products'] == true
             ? AppRoutes.addProduct
-            : AppRoutes.noPermission,
+            : AppRoutes.noPermission, // Handle permission check
       ),
     );
   }

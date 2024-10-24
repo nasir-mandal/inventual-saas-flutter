@@ -52,7 +52,9 @@ class _PurchaseMainScreenState extends State<PurchaseMainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final permission = user['userPermissions'];
+    // Check if userPermissions is available, if not, default to an empty map
+    final permission = user['userPermissions'] ?? {};
+
     return Scaffold(
       appBar: AppBar(
           elevation: 0,
@@ -77,7 +79,9 @@ class _PurchaseMainScreenState extends State<PurchaseMainScreen> {
               padding: const EdgeInsets.only(right: 10.0),
               child: IconButton(
                   onPressed: () {
-                    if (permission['view_permission_purchases_return']) {
+                    // Check if the user has view permission for purchases return
+                    if (permission['view_permission_purchases_return'] ==
+                        true) {
                       Get.toNamed(AppRoutes.purchaseReturn);
                     } else {
                       showDialog(
@@ -126,7 +130,8 @@ class _PurchaseMainScreenState extends State<PurchaseMainScreen> {
       ),
       floatingActionButton: CustomFloatingActionButton(
           buttonName: "Create Purchase",
-          routeName: permission['add_permission_purchases']
+          // Check if the user has add permission for purchases
+          routeName: permission['add_permission_purchases'] == true
               ? AppRoutes.createPurchase
               : AppRoutes.noPermission),
     );

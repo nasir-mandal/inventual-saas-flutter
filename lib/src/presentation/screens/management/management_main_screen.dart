@@ -25,6 +25,7 @@ class _ManagementMainScreenState extends State<ManagementMainScreen> {
   late TextEditingController _searchController;
   late Map<String, dynamic> user = {};
   String searchQuery = "";
+
   @override
   void initState() {
     userListController.fetchAllUsers();
@@ -54,14 +55,18 @@ class _ManagementMainScreenState extends State<ManagementMainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final permission = user['userPermissions'];
+    // Check if user and userPermissions are available
+    final permission =
+        user['userPermissions'] ?? {}; // Default to empty map if null
     List<Map<String, dynamic>> filteredUsers = userListController.usersList;
+
     if (searchQuery.isNotEmpty) {
       filteredUsers = filteredUsers.where((item) {
         return item["name"].toLowerCase().contains(searchQuery.toLowerCase());
       }).toList();
       searchQuery = "";
     }
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -150,7 +155,7 @@ class _ManagementMainScreenState extends State<ManagementMainScreen> {
       ),
       floatingActionButton: CustomFloatingActionButton(
           buttonName: "Add User",
-          routeName: permission['add_permission_users']
+          routeName: permission['add_permission_users'] == true
               ? AppRoutes.addUser
               : AppRoutes.noPermission),
     );
