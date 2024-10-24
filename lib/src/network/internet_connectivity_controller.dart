@@ -1,7 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class InternetConnectivityController extends GetxController {
   final Connectivity _connectivity = Connectivity();

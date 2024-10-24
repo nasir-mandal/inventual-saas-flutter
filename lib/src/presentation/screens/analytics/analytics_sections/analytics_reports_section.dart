@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/business_logic/dashboard/dashboard_report_controller.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/business_logic/dashboard/dashboard_report_controller.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AnalyticsReportSection extends StatefulWidget {

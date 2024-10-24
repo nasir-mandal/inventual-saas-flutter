@@ -1,8 +1,8 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/business_logic/dashboard/dashboard_report_controller.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/business_logic/dashboard/dashboard_report_controller.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class AnalyticsChartSection extends StatefulWidget {
   const AnalyticsChartSection({super.key});

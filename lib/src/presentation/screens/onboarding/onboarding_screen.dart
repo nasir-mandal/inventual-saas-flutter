@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/routes/app_routes.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/routes/app_routes.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});

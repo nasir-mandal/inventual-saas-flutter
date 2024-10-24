@@ -3,9 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/presentation/screens/reports/report_main_screen.dart';
-import 'package:inventual/src/presentation/widgets/button/custom_elevated_button.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/presentation/screens/reports/report_main_screen.dart';
+import 'package:inventual_saas/src/presentation/widgets/button/custom_elevated_button.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class PayCompleteSection extends StatefulWidget {
   const PayCompleteSection({Key? key}) : super(key: key);

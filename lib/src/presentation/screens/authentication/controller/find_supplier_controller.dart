@@ -1,9 +1,9 @@
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:inventual/src/network/services/network_api_services.dart';
-import 'package:inventual/src/presentation/screens/authentication/model/find_supplier_model.dart';
-import 'package:inventual/src/routes/app_routes.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/network/services/network_api_services.dart';
+import 'package:inventual_saas/src/presentation/screens/authentication/model/find_supplier_model.dart';
+import 'package:inventual_saas/src/routes/app_routes.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FindSupplierController extends GetxController {

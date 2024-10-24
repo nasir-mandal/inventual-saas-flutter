@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:inventual/src/routes/app_routes.dart';
+import 'package:inventual_saas/src/routes/app_routes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<List<Map<String, dynamic>>> setupExpenseRoutes() async {

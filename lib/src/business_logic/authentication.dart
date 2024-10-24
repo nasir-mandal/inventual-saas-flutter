@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:inventual/src/network/services/network_api_services.dart';
-import 'package:inventual/src/presentation/widgets/toast/toast_helper.dart';
-import 'package:inventual/src/routes/app_routes.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/network/services/network_api_services.dart';
+import 'package:inventual_saas/src/presentation/widgets/toast/toast_helper.dart';
+import 'package:inventual_saas/src/routes/app_routes.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserAuthenticationController extends GetxController {

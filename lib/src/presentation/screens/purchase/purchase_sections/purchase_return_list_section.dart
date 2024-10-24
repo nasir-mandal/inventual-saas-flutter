@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/presentation/screens/purchase/purchase_sections/add_payment_section.dart';
-import 'package:inventual/src/presentation/screens/sales/salesSections/edit_sales_section.dart';
-import 'package:inventual/src/presentation/screens/sales/salesSections/sale_generate_invoice-section.dart';
-import 'package:inventual/src/presentation/screens/sales/salesSections/sale_view_payment_card_section.dart';
-import 'package:inventual/src/presentation/widgets/toast/delete_toast.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/presentation/screens/purchase/purchase_sections/add_payment_section.dart';
+import 'package:inventual_saas/src/presentation/screens/sales/salesSections/edit_sales_section.dart';
+import 'package:inventual_saas/src/presentation/screens/sales/salesSections/sale_generate_invoice-section.dart';
+import 'package:inventual_saas/src/presentation/screens/sales/salesSections/sale_view_payment_card_section.dart';
+import 'package:inventual_saas/src/presentation/widgets/toast/delete_toast.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class HorizontalPurchaseReturnTableSection extends StatefulWidget {
   final dynamic purchasesList;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:inventual/src/application.dart';
-import 'package:inventual/src/utils/dependency_injection.dart';
+import 'package:inventual_saas/src/application.dart';
+import 'package:inventual_saas/src/utils/dependency_injection.dart';
 
 Future<void> main() async {
   runApp(const MyApp());

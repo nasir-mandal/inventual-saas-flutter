@@ -6,10 +6,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:inventual/src/network/app_expections.dart';
-import 'package:inventual/src/network/services/base_api.dart';
-import 'package:inventual/src/presentation/widgets/diolog_box.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/network/app_expections.dart';
+import 'package:inventual_saas/src/network/services/base_api.dart';
+import 'package:inventual_saas/src/presentation/widgets/diolog_box.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class NetworkApiServices extends BaseApi {

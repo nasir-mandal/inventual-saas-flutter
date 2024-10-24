@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/presentation/screens/purchase/purchase_sections/edit_purchase_section.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/presentation/screens/purchase/purchase_sections/edit_purchase_section.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class ViewPaymentCardSection extends StatelessWidget {
   final dynamic payment;

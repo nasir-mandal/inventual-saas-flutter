@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/business_logic/authentication.dart';
-import 'package:inventual/src/presentation/screens/profile/profile_section/edit_profile_section.dart';
-import 'package:inventual/src/presentation/screens/profile/profile_section/profile_info_row.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/business_logic/authentication.dart';
+import 'package:inventual_saas/src/presentation/screens/profile/profile_section/edit_profile_section.dart';
+import 'package:inventual_saas/src/presentation/screens/profile/profile_section/profile_info_row.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileMainScreen extends StatefulWidget {

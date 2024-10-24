@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/business_logic/settings_controller.dart';
-import 'package:inventual/src/routes/app_routes.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/business_logic/settings_controller.dart';
+import 'package:inventual_saas/src/routes/app_routes.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {

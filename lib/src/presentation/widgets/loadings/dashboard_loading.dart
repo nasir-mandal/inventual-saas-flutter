@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shimmer/shimmer.dart';
 
 class DashboardLoading extends StatelessWidget {

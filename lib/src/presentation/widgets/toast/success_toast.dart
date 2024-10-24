@@ -2,7 +2,7 @@ import 'package:cherry_toast/cherry_toast.dart';
 import 'package:cherry_toast/resources/arrays.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class SuccessToast {
   static void showSuccessToast(

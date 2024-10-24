@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:inventual/src/network/services/network_api_services.dart';
-import 'package:inventual/src/presentation/screens/purchase/purchase_main_screen.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/network/services/network_api_services.dart';
+import 'package:inventual_saas/src/presentation/screens/purchase/purchase_main_screen.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class CreatePurchaseController extends GetxController {
   final NetworkApiServices _apiServices = NetworkApiServices();

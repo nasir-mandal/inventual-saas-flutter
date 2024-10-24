@@ -3,8 +3,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/presentation/widgets/app_bar/custom_app_bar.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/presentation/widgets/app_bar/custom_app_bar.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rounded_date_picker/flutter_rounded_date_picker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class DatePicker extends StatefulWidget {
   final String labelText;

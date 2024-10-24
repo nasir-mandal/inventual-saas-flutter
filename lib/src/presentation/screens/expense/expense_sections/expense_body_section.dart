@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:inventual/src/business_logic/expense/add_expense.dart';
-import 'package:inventual/src/business_logic/proudcts/category_controller.dart';
-import 'package:inventual/src/business_logic/proudcts/product_controller.dart';
-import 'package:inventual/src/data/models/expense_model/expense_type.dart';
-import 'package:inventual/src/presentation/widgets/date_picker_section/globally_date_picker.dart';
-import 'package:inventual/src/presentation/widgets/dropdown/custom_drop_down.dart';
-import 'package:inventual/src/presentation/widgets/text_field/from_submit_button.dart';
-import 'package:inventual/src/presentation/widgets/text_field/input_text.dart';
+import 'package:inventual_saas/src/business_logic/expense/add_expense.dart';
+import 'package:inventual_saas/src/business_logic/proudcts/category_controller.dart';
+import 'package:inventual_saas/src/business_logic/proudcts/product_controller.dart';
+import 'package:inventual_saas/src/data/models/expense_model/expense_type.dart';
+import 'package:inventual_saas/src/presentation/widgets/date_picker_section/globally_date_picker.dart';
+import 'package:inventual_saas/src/presentation/widgets/dropdown/custom_drop_down.dart';
+import 'package:inventual_saas/src/presentation/widgets/text_field/from_submit_button.dart';
+import 'package:inventual_saas/src/presentation/widgets/text_field/input_text.dart';
 
 class ExpenseBodySection extends StatefulWidget {
   const ExpenseBodySection({super.key});

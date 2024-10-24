@@ -3,14 +3,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/business_logic/expense/expense_list.dart';
-import 'package:inventual/src/presentation/screens/expense_list/expense_list_sections/expense_list_section.dart';
-import 'package:inventual/src/presentation/widgets/app_bar/custom_app_bar.dart';
-import 'package:inventual/src/presentation/widgets/floating_aciton_button/custom_floating_action_button.dart';
-import 'package:inventual/src/presentation/widgets/loadings/table_loading_two.dart';
-import 'package:inventual/src/presentation/widgets/not_found.dart';
-import 'package:inventual/src/routes/app_routes.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/business_logic/expense/expense_list.dart';
+import 'package:inventual_saas/src/presentation/screens/expense_list/expense_list_sections/expense_list_section.dart';
+import 'package:inventual_saas/src/presentation/widgets/app_bar/custom_app_bar.dart';
+import 'package:inventual_saas/src/presentation/widgets/floating_aciton_button/custom_floating_action_button.dart';
+import 'package:inventual_saas/src/presentation/widgets/loadings/table_loading_two.dart';
+import 'package:inventual_saas/src/presentation/widgets/not_found.dart';
+import 'package:inventual_saas/src/routes/app_routes.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ExpenseListMainScreen extends StatefulWidget {

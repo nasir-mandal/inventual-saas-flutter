@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/presentation/widgets/app_bar/custom_app_bar.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/presentation/widgets/app_bar/custom_app_bar.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class ExpenseDetailsSection extends StatelessWidget {
   final dynamic expenseData;

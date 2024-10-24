@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String navigateName;

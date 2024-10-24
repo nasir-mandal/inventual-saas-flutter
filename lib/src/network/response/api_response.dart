@@ -1,4 +1,4 @@
-import 'package:inventual/src/network/response/status.dart';
+import 'package:inventual_saas/src/network/response/status.dart';
 
 class ApiResponse<T> {
   Status? status;

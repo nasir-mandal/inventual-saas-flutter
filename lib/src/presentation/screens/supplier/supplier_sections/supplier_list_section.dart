@@ -3,10 +3,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/business_logic/people/supplier/create_supplier_controller.dart';
-import 'package:inventual/src/presentation/screens/supplier/supplier_sections/updateSupplierSection.dart';
-import 'package:inventual/src/presentation/widgets/no_permission_box.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/business_logic/people/supplier/create_supplier_controller.dart';
+import 'package:inventual_saas/src/presentation/screens/supplier/supplier_sections/updateSupplierSection.dart';
+import 'package:inventual_saas/src/presentation/widgets/no_permission_box.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SupplierListSection extends StatefulWidget {

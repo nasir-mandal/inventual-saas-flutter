@@ -1,7 +1,7 @@
 import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class CustomDropdownField extends StatefulWidget {
   final List<String> dropdownItems;
@@ -66,7 +66,8 @@ class _CustomDropdownFieldState extends State<CustomDropdownField> {
           closedFillColor: widget.backgroundColor ?? ColorSchema.light,
           hintStyle: GoogleFonts.inter(
               color: widget.hintTextColor ?? ColorSchema.grey,
-              fontSize: widget.hintFontSize ?? 14,fontWeight: FontWeight.w600),
+              fontSize: widget.hintFontSize ?? 14,
+              fontWeight: FontWeight.w600),
           closedBorderRadius: BorderRadius.circular(widget.closedBorderRadius),
           expandedBorderRadius:
               BorderRadius.circular(widget.expandedBorderRadius),

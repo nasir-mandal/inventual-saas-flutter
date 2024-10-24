@@ -2,12 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:inventual/src/presentation/screens/dashboard/dashboard_sections/carousel_section.dart';
-import 'package:inventual/src/presentation/screens/dashboard/dashboard_sections/header_section.dart';
-import 'package:inventual/src/presentation/screens/dashboard/dashboard_sections/services_section.dart';
-import 'package:inventual/src/presentation/screens/dashboard/dashboard_sections/today_reports_section.dart';
-import 'package:inventual/src/presentation/widgets/drawer/dashboard_drawer.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/presentation/screens/dashboard/dashboard_sections/carousel_section.dart';
+import 'package:inventual_saas/src/presentation/screens/dashboard/dashboard_sections/header_section.dart';
+import 'package:inventual_saas/src/presentation/screens/dashboard/dashboard_sections/services_section.dart';
+import 'package:inventual_saas/src/presentation/screens/dashboard/dashboard_sections/today_reports_section.dart';
+import 'package:inventual_saas/src/presentation/widgets/drawer/dashboard_drawer.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:sidebarx/sidebarx.dart';
 
 class DashboardMainScreen extends StatefulWidget {

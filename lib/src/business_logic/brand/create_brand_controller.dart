@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
-import 'package:inventual/src/business_logic/proudcts/product_controller.dart';
-import 'package:inventual/src/network/services/network_api_services.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/business_logic/proudcts/product_controller.dart';
+import 'package:inventual_saas/src/network/services/network_api_services.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class BrandController extends GetxController {

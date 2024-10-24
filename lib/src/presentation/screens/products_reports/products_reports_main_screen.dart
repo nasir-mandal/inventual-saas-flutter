@@ -3,14 +3,14 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/business_logic/reports/products_report.dart';
-import 'package:inventual/src/presentation/screens/products_reports/products_reports_sections/horizontal_product_report_table_section.dart';
-import 'package:inventual/src/presentation/widgets/button/custom_elevated_button.dart';
-import 'package:inventual/src/presentation/widgets/date_picker_section/globally_date_picker.dart';
-import 'package:inventual/src/presentation/widgets/drawer/dashboard_drawer.dart';
-import 'package:inventual/src/presentation/widgets/loadings/table_loading.dart';
-import 'package:inventual/src/presentation/widgets/not_found.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/business_logic/reports/products_report.dart';
+import 'package:inventual_saas/src/presentation/screens/products_reports/products_reports_sections/horizontal_product_report_table_section.dart';
+import 'package:inventual_saas/src/presentation/widgets/button/custom_elevated_button.dart';
+import 'package:inventual_saas/src/presentation/widgets/date_picker_section/globally_date_picker.dart';
+import 'package:inventual_saas/src/presentation/widgets/drawer/dashboard_drawer.dart';
+import 'package:inventual_saas/src/presentation/widgets/loadings/table_loading.dart';
+import 'package:inventual_saas/src/presentation/widgets/not_found.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:sidebarx/sidebarx.dart';
 
 class ProductsReportsMainScreen extends StatefulWidget {

@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/presentation/screens/expense/expense_sections/expense_body_section.dart';
-import 'package:inventual/src/presentation/widgets/drawer/dashboard_drawer.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/presentation/screens/expense/expense_sections/expense_body_section.dart';
+import 'package:inventual_saas/src/presentation/widgets/drawer/dashboard_drawer.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:sidebarx/sidebarx.dart';
 
 class ExpenseMainScreen extends StatefulWidget {

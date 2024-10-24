@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/business_logic/proudcts/category_controller.dart';
-import 'package:inventual/src/business_logic/proudcts/product_controller.dart';
-import 'package:inventual/src/presentation/screens/sales/new_sales/sales_bills_section.dart';
-import 'package:inventual/src/presentation/widgets/app_bar/custom_app_bar.dart';
-import 'package:inventual/src/presentation/widgets/loadings/product_grid_loading.dart';
-import 'package:inventual/src/presentation/widgets/not_found.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/business_logic/proudcts/category_controller.dart';
+import 'package:inventual_saas/src/business_logic/proudcts/product_controller.dart';
+import 'package:inventual_saas/src/presentation/screens/sales/new_sales/sales_bills_section.dart';
+import 'package:inventual_saas/src/presentation/widgets/app_bar/custom_app_bar.dart';
+import 'package:inventual_saas/src/presentation/widgets/loadings/product_grid_loading.dart';
+import 'package:inventual_saas/src/presentation/widgets/not_found.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class NewSalesMainScreen extends StatefulWidget {
   const NewSalesMainScreen({Key? key}) : super(key: key);

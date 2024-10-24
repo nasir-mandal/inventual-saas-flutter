@@ -1,17 +1,16 @@
-
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class ToastHelper {
   static void showToast(
-      BuildContext context, {
-        required String message,
-        Color? backgroundColor,
-        Color? textColor,
-        FontWeight? fontWeight,
-        GFToastPosition? toastPosition,
-      }) {
+    BuildContext context, {
+    required String message,
+    Color? backgroundColor,
+    Color? textColor,
+    FontWeight? fontWeight,
+    GFToastPosition? toastPosition,
+  }) {
     GFToast.showToast(
       message,
       context,

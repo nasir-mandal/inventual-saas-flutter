@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/business_logic/people/user/user_controller.dart';
-import 'package:inventual/src/presentation/screens/management/management_sections/user_list_card_section.dart';
-import 'package:inventual/src/presentation/widgets/floating_aciton_button/custom_floating_action_button.dart';
-import 'package:inventual/src/presentation/widgets/loadings/user_card_loading.dart';
-import 'package:inventual/src/presentation/widgets/not_found.dart';
-import 'package:inventual/src/routes/app_routes.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/business_logic/people/user/user_controller.dart';
+import 'package:inventual_saas/src/presentation/screens/management/management_sections/user_list_card_section.dart';
+import 'package:inventual_saas/src/presentation/widgets/floating_aciton_button/custom_floating_action_button.dart';
+import 'package:inventual_saas/src/presentation/widgets/loadings/user_card_loading.dart';
+import 'package:inventual_saas/src/presentation/widgets/not_found.dart';
+import 'package:inventual_saas/src/routes/app_routes.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ManagementMainScreen extends StatefulWidget {

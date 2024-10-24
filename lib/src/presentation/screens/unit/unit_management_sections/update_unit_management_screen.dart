@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/business_logic/units/unit_controller.dart';
-import 'package:inventual/src/presentation/widgets/text_field/from_submit_button.dart';
-import 'package:inventual/src/presentation/widgets/text_field/input_text.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/business_logic/units/unit_controller.dart';
+import 'package:inventual_saas/src/presentation/widgets/text_field/from_submit_button.dart';
+import 'package:inventual_saas/src/presentation/widgets/text_field/input_text.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class UpdateUnitManagementScreen extends StatefulWidget {
   final dynamic unit;

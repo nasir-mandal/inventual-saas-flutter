@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/business_logic/people/user/user_controller.dart';
-import 'package:inventual/src/business_logic/roles/roles_controller.dart';
-import 'package:inventual/src/data/models/people_model/gender_data.dart';
-import 'package:inventual/src/presentation/screens/management/management_main_screen.dart';
-import 'package:inventual/src/presentation/widgets/dropdown/custom_drop_down.dart';
-import 'package:inventual/src/presentation/widgets/text_field/from_submit_button.dart';
-import 'package:inventual/src/presentation/widgets/text_field/input_text.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/business_logic/people/user/user_controller.dart';
+import 'package:inventual_saas/src/business_logic/roles/roles_controller.dart';
+import 'package:inventual_saas/src/data/models/people_model/gender_data.dart';
+import 'package:inventual_saas/src/presentation/screens/management/management_main_screen.dart';
+import 'package:inventual_saas/src/presentation/widgets/dropdown/custom_drop_down.dart';
+import 'package:inventual_saas/src/presentation/widgets/text_field/from_submit_button.dart';
+import 'package:inventual_saas/src/presentation/widgets/text_field/input_text.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class UpdateUserSection extends StatefulWidget {
   final dynamic user;

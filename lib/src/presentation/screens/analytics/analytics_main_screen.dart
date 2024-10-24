@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:inventual/src/presentation/screens/analytics/analytics_sections/analytics_chart_section.dart';
-import 'package:inventual/src/presentation/screens/analytics/analytics_sections/analytics_chart_section_two.dart';
-import 'package:inventual/src/presentation/screens/analytics/analytics_sections/analytics_reports_section.dart';
-import 'package:inventual/src/presentation/widgets/app_bar/custom_app_bar.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/presentation/screens/analytics/analytics_sections/analytics_chart_section.dart';
+import 'package:inventual_saas/src/presentation/screens/analytics/analytics_sections/analytics_chart_section_two.dart';
+import 'package:inventual_saas/src/presentation/screens/analytics/analytics_sections/analytics_reports_section.dart';
+import 'package:inventual_saas/src/presentation/widgets/app_bar/custom_app_bar.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class AnalyticsMainScreen extends StatelessWidget {
   const AnalyticsMainScreen({super.key});

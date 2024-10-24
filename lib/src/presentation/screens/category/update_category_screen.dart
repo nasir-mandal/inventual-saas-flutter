@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventual/src/business_logic/proudcts/category_controller.dart';
-import 'package:inventual/src/data/models/category_type.dart';
-import 'package:inventual/src/presentation/screens/category/category_main_screen.dart';
-import 'package:inventual/src/presentation/screens/expense_category/expense_category_main_Screen.dart';
-import 'package:inventual/src/presentation/widgets/dropdown/custom_drop_down.dart';
-import 'package:inventual/src/presentation/widgets/text_field/from_submit_button.dart';
-import 'package:inventual/src/presentation/widgets/text_field/input_text.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/business_logic/proudcts/category_controller.dart';
+import 'package:inventual_saas/src/data/models/category_type.dart';
+import 'package:inventual_saas/src/presentation/screens/category/category_main_screen.dart';
+import 'package:inventual_saas/src/presentation/screens/expense_category/expense_category_main_Screen.dart';
+import 'package:inventual_saas/src/presentation/widgets/dropdown/custom_drop_down.dart';
+import 'package:inventual_saas/src/presentation/widgets/text_field/from_submit_button.dart';
+import 'package:inventual_saas/src/presentation/widgets/text_field/input_text.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class UpdateCategoryScreen extends StatefulWidget {
   final dynamic category;

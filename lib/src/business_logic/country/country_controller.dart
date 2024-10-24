@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:inventual/src/network/services/network_api_services.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/network/services/network_api_services.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class CountryController extends GetxController {
   final NetworkApiServices _apiServices = NetworkApiServices();

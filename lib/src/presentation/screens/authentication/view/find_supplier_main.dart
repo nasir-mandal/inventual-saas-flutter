@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:inventual/src/presentation/screens/authentication/controller/find_supplier_controller.dart';
-import 'package:inventual/src/presentation/widgets/button/custom_elevated_button.dart';
-import 'package:inventual/src/presentation/widgets/dropdown/custom_drop_down.dart';
-import 'package:inventual/src/presentation/widgets/loadings/custom_loading.dart';
-import 'package:inventual/src/utils/contstants.dart';
+import 'package:inventual_saas/src/presentation/screens/authentication/controller/find_supplier_controller.dart';
+import 'package:inventual_saas/src/presentation/widgets/button/custom_elevated_button.dart';
+import 'package:inventual_saas/src/presentation/widgets/dropdown/custom_drop_down.dart';
+import 'package:inventual_saas/src/presentation/widgets/loadings/custom_loading.dart';
+import 'package:inventual_saas/src/utils/contstants.dart';
 
 class FindSupplierMain extends StatelessWidget {
   const FindSupplierMain({super.key});
