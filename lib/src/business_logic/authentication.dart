@@ -24,6 +24,7 @@ class UserAuthenticationController extends GetxController {
         "username": username.value.text,
         "password": password.value.text,
       };
+      print(requestBody);
       final String url = "${await AppStrings.getBaseUrlV1()}users/login";
       final jsonResponse = await _apiServices.loginApi(requestBody, url);
 

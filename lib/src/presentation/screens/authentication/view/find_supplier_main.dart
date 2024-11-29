@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:inventual_saas/src/presentation/screens/authentication/controller/find_supplier_controller.dart';
+import 'package:inventual_saas/src/presentation/screens/authentication/view/become_a_seller_main.dart';
 import 'package:inventual_saas/src/presentation/widgets/button/custom_elevated_button.dart';
 import 'package:inventual_saas/src/presentation/widgets/dropdown/custom_drop_down.dart';
 import 'package:inventual_saas/src/presentation/widgets/loadings/custom_loading.dart';
@@ -106,7 +108,34 @@ class FindSupplierMain extends StatelessWidget {
                         ),
                         SizedBox(height: 15.h),
                         _buildVerifyButton(findSupplierController),
-                        SizedBox(height: 70.h),
+                        SizedBox(height: 20.h),
+                        Padding(
+                          padding: EdgeInsets.only(right: 12.w),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              GestureDetector(
+                                onTap: () => Get.to(BecomeASellerMain()),
+                                child: Text(
+                                  "Become a Seller",
+                                  style: GoogleFonts.raleway(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 14.sp,
+                                      color: ColorSchema.white),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 5.w,
+                              ),
+                              Icon(
+                                Icons.arrow_forward,
+                                color: ColorSchema.white,
+                                size: 18,
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 50.h),
                       ],
                     ),
                   ),

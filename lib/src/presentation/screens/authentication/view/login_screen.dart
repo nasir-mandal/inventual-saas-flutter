@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inventual_saas/src/business_logic/authentication.dart';
 import 'package:inventual_saas/src/business_logic/settings_controller.dart';
+import 'package:inventual_saas/src/presentation/screens/authentication/view/become_a_seller_main.dart';
 import 'package:inventual_saas/src/presentation/widgets/button/custom_elevated_button.dart';
 import 'package:inventual_saas/src/presentation/widgets/loadings/dashboard_loading.dart';
 import 'package:inventual_saas/src/routes/app_routes.dart';
@@ -60,7 +61,34 @@ class _LoginScreenState extends State<LoginScreen> {
               buildChangeSupplierScreenAlsoRemember(),
               SizedBox(height: 5.h),
               _buildLoginButton(),
-              SizedBox(height: 70.h),
+              SizedBox(height: 20.h),
+              Padding(
+                padding: EdgeInsets.only(right: 12.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    GestureDetector(
+                      onTap: () => Get.to(BecomeASellerMain()),
+                      child: Text(
+                        "Become a Seller",
+                        style: GoogleFonts.raleway(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14.sp,
+                            color: ColorSchema.white),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5.w,
+                    ),
+                    Icon(
+                      Icons.arrow_forward,
+                      color: ColorSchema.white,
+                      size: 18,
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(height: 50.h),
             ],
           ),
         ),
