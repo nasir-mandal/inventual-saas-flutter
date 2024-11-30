@@ -107,7 +107,7 @@ class _DashboardHeaderSectionState extends State<DashboardHeaderSection> {
                 showDialog(
                   context: context,
                   builder: (context) => CustomDynamicAlertDialog(
-                    title: "LogOut",
+                    title: "Logout",
                     subTitle: "Are you sure you want to log out?",
                     yesButtonName: "Yes",
                     pressedYes: () {

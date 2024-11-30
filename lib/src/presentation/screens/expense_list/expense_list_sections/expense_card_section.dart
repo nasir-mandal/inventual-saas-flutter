@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:inventual_saas/src/utils/contstants.dart';
 
 class ExpenseCardSection extends StatelessWidget {
-  const ExpenseCardSection({Key? key}) : super(key: key);
+  const ExpenseCardSection({super.key});
 
   @override
   Widget build(BuildContext context) {

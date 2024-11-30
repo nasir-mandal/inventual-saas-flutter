@@ -16,7 +16,7 @@ import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserRoleMainScreen extends StatefulWidget {
-  const UserRoleMainScreen({Key? key}) : super(key: key);
+  const UserRoleMainScreen({super.key});
 
   @override
   State<UserRoleMainScreen> createState() => _UserRoleMainScreenState();

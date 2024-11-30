@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inventual_saas/src/business_logic/expense/expense_list.dart';
 import 'package:inventual_saas/src/presentation/screens/purchase/purchase_sections/add_payment_section.dart';
-import 'package:inventual_saas/src/presentation/screens/purchase/purchase_sections/view_payment_card_section.dart';
 import 'package:inventual_saas/src/utils/contstants.dart';
 
 class HorizontalExpenseTableSection extends StatefulWidget {
@@ -259,20 +258,6 @@ class _HorizontalExpenseTableSectionState
             ])
           ],
         ),
-      ),
-    );
-  }
-
-  void _buildDialogModal(BuildContext context, dynamic payment) {
-    showDialog(
-      context: context,
-      builder: (context) => Dialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        elevation: 0,
-        backgroundColor: ColorSchema.white,
-        child: ViewPaymentCardSection(payment: payment),
       ),
     );
   }

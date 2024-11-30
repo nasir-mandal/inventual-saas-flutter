@@ -14,7 +14,7 @@ import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:sidebarx/sidebarx.dart';
 
 class UserReportsMainScreen extends StatefulWidget {
-  const UserReportsMainScreen({Key? key}) : super(key: key);
+  const UserReportsMainScreen({super.key});
   @override
   State<UserReportsMainScreen> createState() => _UserReportsMainScreenState();
 }

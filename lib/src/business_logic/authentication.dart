@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:inventual_saas/src/network/services/network_api_services.dart';
-import 'package:inventual_saas/src/presentation/widgets/toast/toast_helper.dart';
 import 'package:inventual_saas/src/routes/app_routes.dart';
 import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,7 +24,6 @@ class UserAuthenticationController extends GetxController {
         "username": username.value.text,
         "password": password.value.text,
       };
-      print(requestBody);
       final String url = "${await AppStrings.getBaseUrlV1()}users/login";
       final jsonResponse = await _apiServices.loginApi(requestBody, url);
 
@@ -331,24 +330,24 @@ class UserAuthenticationController extends GetxController {
         await prefs.setString('user', jsonString);
         isLoading.value = false;
         Get.toNamed(AppRoutes.dashboard);
-        ToastHelper.showToast(context,
-            message: "Login Successful",
+        Fluttertoast.showToast(
+            msg: "Login Successful",
             backgroundColor: ColorSchema.success.withOpacity(0.7));
         notFound.value = false;
-        return true; // Return true if login is successful
+        return true;
       } else {
         isLoading.value = false;
-        ToastHelper.showToast(context,
-            message: "Login Failed",
+        Fluttertoast.showToast(
+            msg: "Login Failed",
             backgroundColor: ColorSchema.danger.withOpacity(0.7));
-        return false; // Return false if login fails
+        return false;
       }
     } catch (e) {
       isLoading.value = false;
-      ToastHelper.showToast(context,
-          message: "Invalid username or password",
+      Fluttertoast.showToast(
+          msg: "Invalid username or password",
           backgroundColor: ColorSchema.danger.withOpacity(0.7));
-      return false; // Return false if an error occurs
+      return false;
     }
   }
 

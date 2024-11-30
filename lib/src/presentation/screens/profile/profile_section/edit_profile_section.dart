@@ -14,7 +14,7 @@ import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class EditProfileSection extends StatefulWidget {
-  const EditProfileSection({Key? key}) : super(key: key);
+  const EditProfileSection({super.key});
 
   @override
   State<EditProfileSection> createState() => _EditProfileSectionState();
@@ -52,55 +52,53 @@ class _EditProfileSectionState extends State<EditProfileSection> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView(
-        children: [
-          const Divider(color: ColorSchema.white38),
-          const SizedBox(height: 20),
-          GestureDetector(
-            onTap: () async {
-              await _createController.pickImage();
-            },
-            child: Align(
-              alignment: Alignment.center,
-              child: Stack(
-                children: [
-                  Obx(() {
-                    return CircleAvatar(
-                      backgroundColor: ColorSchema.blue.withOpacity(0.05),
-                      radius: 60,
-                      backgroundImage: _createController.selectedFile.value !=
-                              null
-                          ? FileImage(_createController.selectedFile.value!)
-                              as ImageProvider<Object>
-                          : (user['image'] != null && user['image'].isNotEmpty)
-                              ? NetworkImage(user['image'])
-                                  as ImageProvider<Object>
-                              : const AssetImage(
-                                      "assets/images/avatar/placeholder-user.png")
-                                  as ImageProvider<Object>,
-                    );
-                  }),
-                  const Positioned(
-                    right: 0,
-                    child: CircleAvatar(
-                      radius: 18,
-                      backgroundColor: ColorSchema.primaryColor,
-                      child: Icon(
-                        Icons.camera_alt_outlined,
-                        color: ColorSchema.white,
-                      ),
+    return ListView(
+      children: [
+        const Divider(color: ColorSchema.white38),
+        const SizedBox(height: 20),
+        GestureDetector(
+          onTap: () async {
+            await _createController.pickImage();
+          },
+          child: Align(
+            alignment: Alignment.center,
+            child: Stack(
+              children: [
+                Obx(() {
+                  return CircleAvatar(
+                    backgroundColor: ColorSchema.blue.withOpacity(0.05),
+                    radius: 60,
+                    backgroundImage: _createController.selectedFile.value !=
+                            null
+                        ? FileImage(_createController.selectedFile.value!)
+                            as ImageProvider<Object>
+                        : (user['image'] != null && user['image'].isNotEmpty)
+                            ? NetworkImage(user['image'])
+                                as ImageProvider<Object>
+                            : const AssetImage(
+                                    "assets/images/avatar/placeholder-user.png")
+                                as ImageProvider<Object>,
+                  );
+                }),
+                const Positioned(
+                  right: 0,
+                  child: CircleAvatar(
+                    radius: 18,
+                    backgroundColor: ColorSchema.primaryColor,
+                    child: Icon(
+                      Icons.camera_alt_outlined,
+                      color: ColorSchema.white,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: 20),
-          _buildForm(),
-          const SizedBox(height: 20),
-        ],
-      ),
+        ),
+        const SizedBox(height: 20),
+        _buildForm(),
+        const SizedBox(height: 20),
+      ],
     );
   }
 

@@ -72,7 +72,7 @@ class _DropdownFormFieldActionSectionState
                   item,
                   style: GoogleFonts.nunito(color: ColorSchema.black),
                 ));
-          }).toList(),
+          }),
           DropdownMenuItem(
             value: widget.checkValue,
             child: Row(

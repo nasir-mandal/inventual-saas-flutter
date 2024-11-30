@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inventual_saas/src/presentation/screens/purchase/purchase_sections/add_payment_section.dart';
 import 'package:inventual_saas/src/presentation/screens/sales/salesSections/edit_sales_section.dart';
 import 'package:inventual_saas/src/presentation/screens/sales/salesSections/sale_generate_invoice-section.dart';
 import 'package:inventual_saas/src/presentation/screens/sales/salesSections/sale_view_payment_card_section.dart';
-import 'package:inventual_saas/src/presentation/widgets/toast/delete_toast.dart';
 import 'package:inventual_saas/src/utils/contstants.dart';
 
 class HorizontalPurchaseReturnTableSection extends StatefulWidget {
   final dynamic purchasesList;
+
   const HorizontalPurchaseReturnTableSection(
       {super.key, required this.purchasesList});
+
   @override
   State<HorizontalPurchaseReturnTableSection> createState() =>
       _HorizontalPurchaseReturnTableSectionState();
@@ -207,8 +209,9 @@ class _HorizontalPurchaseReturnTableSectionState
                             } else if (value == "View Payment") {
                               _buildDialogModal(context, entry);
                             } else if (value == 'Delete') {
-                              DeleteToast.showDeleteToast(
-                                  context, entry.value["customerName"]);
+                              Fluttertoast.showToast(
+                                  msg: entry.value["customerName"],
+                                  backgroundColor: ColorSchema.success);
                               setState(() {
                                 salesList.removeAt(entry.key);
                               });

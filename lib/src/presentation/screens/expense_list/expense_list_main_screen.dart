@@ -14,7 +14,7 @@ import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ExpenseListMainScreen extends StatefulWidget {
-  const ExpenseListMainScreen({Key? key}) : super(key: key);
+  const ExpenseListMainScreen({super.key});
 
   @override
   State<ExpenseListMainScreen> createState() => _ExpenseListMainScreenState();

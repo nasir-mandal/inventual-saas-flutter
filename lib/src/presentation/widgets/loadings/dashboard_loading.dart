@@ -3,7 +3,7 @@ import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shimmer/shimmer.dart';
 
 class DashboardLoading extends StatelessWidget {
-  const DashboardLoading({Key? key}) : super(key: key);
+  const DashboardLoading({super.key});
 
   @override
   Widget build(BuildContext context) {

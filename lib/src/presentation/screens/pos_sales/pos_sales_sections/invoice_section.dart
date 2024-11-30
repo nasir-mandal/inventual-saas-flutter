@@ -14,7 +14,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class InvoiceSection extends StatefulWidget {
   final dynamic products;
 
-  const InvoiceSection({Key? key, required this.products}) : super(key: key);
+  const InvoiceSection({super.key, required this.products});
 
   @override
   State<InvoiceSection> createState() => _InvoiceSectionState();

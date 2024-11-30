@@ -4,8 +4,8 @@ import 'package:shimmer/shimmer.dart';
 
 class ProductListLoading extends StatelessWidget {
   const ProductListLoading({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

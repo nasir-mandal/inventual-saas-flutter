@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:inventual_saas/src/presentation/widgets/app_bar/custom_app_bar.dart';
 import 'package:inventual_saas/src/presentation/widgets/button/custom_elevated_button.dart';
 import 'package:inventual_saas/src/presentation/widgets/date_picker_section/date_picker.dart';
 import 'package:inventual_saas/src/presentation/widgets/text_field/dropdown_form_field_section.dart';
 import 'package:inventual_saas/src/presentation/widgets/text_field/text_field_section.dart';
-import 'package:inventual_saas/src/presentation/widgets/toast/success_toast.dart';
 import 'package:inventual_saas/src/utils/contstants.dart';
 
 class EditSalesSection extends StatelessWidget {
@@ -102,8 +102,9 @@ class EditSalesSection extends StatelessWidget {
             CustomElevatedButton(
                 buttonName: "Update Sale",
                 onPressed: () {
-                  SuccessToast.showSuccessToast(
-                      context, "Update Complete", "Sale Update Complete");
+                  Fluttertoast.showToast(
+                      msg: "Sale Update Complete",
+                      backgroundColor: ColorSchema.success);
                 }),
             const SizedBox(
               height: 20,

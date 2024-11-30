@@ -10,7 +10,7 @@ Future<List<Map<String, dynamic>>> setupDashboardRoutes() async {
   final Map<String, dynamic> userMap = json.decode(userString);
   final permission = userMap['userPermissions'];
 
-  final List<Map<String, dynamic>> DashboardRouteModel = <Map<String, dynamic>>[
+  final List<Map<String, dynamic>> dashboardRouteModel = <Map<String, dynamic>>[
     {
       'icon': "assets/icons/icon_svg/dashboard.svg",
       'label': 'Dashboard',
@@ -79,5 +79,5 @@ Future<List<Map<String, dynamic>>> setupDashboardRoutes() async {
     },
   ];
 
-  return DashboardRouteModel;
+  return dashboardRouteModel;
 }

@@ -11,7 +11,7 @@ import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileMainScreen extends StatefulWidget {
-  const ProfileMainScreen({Key? key}) : super(key: key);
+  const ProfileMainScreen({super.key});
 
   @override
   State<ProfileMainScreen> createState() => _ProfileMainScreenState();

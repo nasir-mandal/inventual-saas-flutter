@@ -10,7 +10,7 @@ Future<List<Map<String, dynamic>>> setupProductRoutes() async {
   final Map<String, dynamic> userMap = json.decode(userString);
   final permission = userMap['userPermissions'];
 
-  final List<Map<String, dynamic>> ProductsRouteModel = <Map<String, dynamic>>[
+  final List<Map<String, dynamic>> productsRouteModel = <Map<String, dynamic>>[
     {
       'icon': "assets/icons/icon_svg/dashboard.svg",
       'label': 'Dashboard',
@@ -50,5 +50,5 @@ Future<List<Map<String, dynamic>>> setupProductRoutes() async {
           : AppRoutes.noPermission
     },
   ];
-  return ProductsRouteModel;
+  return productsRouteModel;
 }

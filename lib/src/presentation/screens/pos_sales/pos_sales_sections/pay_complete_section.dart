@@ -8,7 +8,7 @@ import 'package:inventual_saas/src/presentation/widgets/button/custom_elevated_b
 import 'package:inventual_saas/src/utils/contstants.dart';
 
 class PayCompleteSection extends StatefulWidget {
-  const PayCompleteSection({Key? key}) : super(key: key);
+  const PayCompleteSection({super.key});
 
   @override
   State<PayCompleteSection> createState() => _PayCompleteSectionState();

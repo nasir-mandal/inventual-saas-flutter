@@ -16,7 +16,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sidebarx/sidebarx.dart';
 
 class ProductsMainScreen extends StatefulWidget {
-  const ProductsMainScreen({Key? key}) : super(key: key);
+  const ProductsMainScreen({super.key});
 
   @override
   State<ProductsMainScreen> createState() => _ProductsMainScreenState();

@@ -4,8 +4,8 @@ import 'package:shimmer/shimmer.dart';
 
 class TableLoadingTwo extends StatelessWidget {
   const TableLoadingTwo({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

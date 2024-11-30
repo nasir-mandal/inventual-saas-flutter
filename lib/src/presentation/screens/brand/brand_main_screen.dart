@@ -16,7 +16,8 @@ import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class BrandMainScreen extends StatefulWidget {
-  const BrandMainScreen({Key? key}) : super(key: key);
+  const BrandMainScreen({super.key});
+
   @override
   BrandMainScreenState createState() => BrandMainScreenState();
 }
@@ -27,6 +28,7 @@ class BrandMainScreenState extends State<BrandMainScreen> {
   TextEditingController brandNameController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   late Map<String, dynamic> user = {};
+
   @override
   void initState() {
     _controller.getAllBrands();

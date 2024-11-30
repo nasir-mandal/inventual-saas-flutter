@@ -17,7 +17,7 @@ import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CategoryMainScreen extends StatefulWidget {
-  const CategoryMainScreen({Key? key}) : super(key: key);
+  const CategoryMainScreen({super.key});
 
   @override
   State<CategoryMainScreen> createState() => _CategoryMainScreenState();
@@ -28,6 +28,7 @@ class _CategoryMainScreenState extends State<CategoryMainScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController categoryController = TextEditingController();
   late Map<String, dynamic> user = {};
+
   @override
   void initState() {
     _controller.fetchAllCategories();

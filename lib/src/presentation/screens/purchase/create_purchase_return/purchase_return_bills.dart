@@ -203,9 +203,15 @@ class _PurchaseBillsSectionState extends State<PurchaseReturnBillsSection> {
   @override
   void dispose() {
     // Dispose of the controllers to prevent memory leaks.
-    for (var controller in taxControllers) controller.dispose();
-    for (var controller in discountControllers) controller.dispose();
-    for (var controller in priceControllers) controller.dispose();
+    for (var controller in taxControllers) {
+      controller.dispose();
+    }
+    for (var controller in discountControllers) {
+      controller.dispose();
+    }
+    for (var controller in priceControllers) {
+      controller.dispose();
+    }
     super.dispose();
   }
 

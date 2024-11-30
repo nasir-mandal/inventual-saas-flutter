@@ -8,7 +8,7 @@ import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AnalyticsReportSection extends StatefulWidget {
-  const AnalyticsReportSection({Key? key}) : super(key: key);
+  const AnalyticsReportSection({super.key});
 
   @override
   State<AnalyticsReportSection> createState() => _AnalyticsReportSectionState();
@@ -227,8 +227,8 @@ class _AnalyticsReportSectionState extends State<AnalyticsReportSection> {
               children: [
                 Stack(alignment: Alignment.center, children: [
                   Container(
-                    width: 50,
-                    height: 50,
+                    width: 45,
+                    height: 45,
                     decoration: BoxDecoration(
                       color: ColorSchema.white54,
                       borderRadius: BorderRadius.circular(50),
@@ -239,7 +239,7 @@ class _AnalyticsReportSectionState extends State<AnalyticsReportSection> {
                       reportIcon,
                     ),
                     color: reportIconColor,
-                    size: 30,
+                    size: 25,
                   )
                 ]),
                 SizedBox(
@@ -264,7 +264,7 @@ class _AnalyticsReportSectionState extends State<AnalyticsReportSection> {
                         style: GoogleFonts.nunito(
                           textStyle: TextStyle(
                             color: balanceColor,
-                            fontSize: cardWidth * 0.040,
+                            fontSize: cardWidth * 0.035,
                             fontWeight: FontWeight.bold,
                           ),
                         ),

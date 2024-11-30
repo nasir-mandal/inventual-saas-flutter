@@ -15,7 +15,7 @@ import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class POSSalesMainScreen extends StatefulWidget {
-  const POSSalesMainScreen({Key? key}) : super(key: key);
+  const POSSalesMainScreen({super.key});
 
   @override
   State<POSSalesMainScreen> createState() => _POSSalesMainScreenState();

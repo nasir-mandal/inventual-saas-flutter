@@ -81,23 +81,6 @@ class _PurchaseBillsSectionState extends State<PurchaseBillsSection> {
     );
   }
 
-  void _updateProductData(int index) {
-    double price = double.tryParse(priceControllers[index].text) ?? 0;
-    double tax = double.tryParse(taxControllers[index].text) ?? 0;
-    double discount = double.tryParse(discountControllers[index].text) ?? 0;
-
-    setState(() {
-      widget.product[index]["price"] = price.toString();
-      widget.product[index]["tax"] = tax.toString();
-      widget.product[index]["discount"] = discount.toString();
-
-      _createController.calculateSubtotals(
-          product: widget.product,
-          quantities: quantities,
-          subtotals: subtotals);
-    });
-  }
-
   void _updateQuantity(int index, int newQuantity) {
     if (index >= 0 && index < quantities.length) {
       setState(() {
@@ -200,9 +183,15 @@ class _PurchaseBillsSectionState extends State<PurchaseBillsSection> {
   @override
   void dispose() {
     // Dispose of the controllers to prevent memory leaks.
-    for (var controller in taxControllers) controller.dispose();
-    for (var controller in discountControllers) controller.dispose();
-    for (var controller in priceControllers) controller.dispose();
+    for (var controller in taxControllers) {
+      controller.dispose();
+    }
+    for (var controller in discountControllers) {
+      controller.dispose();
+    }
+    for (var controller in priceControllers) {
+      controller.dispose();
+    }
     super.dispose();
   }
 

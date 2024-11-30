@@ -11,7 +11,7 @@ import 'package:inventual_saas/src/presentation/widgets/not_found.dart';
 import 'package:inventual_saas/src/utils/contstants.dart';
 
 class CreateSalesReturnMainScreen extends StatefulWidget {
-  const CreateSalesReturnMainScreen({Key? key}) : super(key: key);
+  const CreateSalesReturnMainScreen({super.key});
 
   @override
   State<CreateSalesReturnMainScreen> createState() =>

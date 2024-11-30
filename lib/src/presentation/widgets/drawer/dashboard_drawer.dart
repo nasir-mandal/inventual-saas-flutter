@@ -11,6 +11,7 @@ import 'package:inventual_saas/src/data/models/route_item_model/expense_route_mo
 import 'package:inventual_saas/src/data/models/route_item_model/products_route_model.dart';
 import 'package:inventual_saas/src/data/models/route_item_model/reports_route_model.dart';
 import 'package:inventual_saas/src/data/models/route_item_model/trading_route_model.dart';
+import 'package:inventual_saas/src/presentation/widgets/alert_dialog/custom_dynamic_alert_dialog.dart';
 import 'package:inventual_saas/src/routes/app_routes.dart';
 import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -211,11 +212,23 @@ class _DashboardDrawerState extends State<DashboardDrawer> {
           ),
           label: item['label'],
           onTap: () {
-            if (item['label'] == 'Log Out') {
-              _controller.logOut();
-              userController.logOut();
-            }
-            Get.toNamed(item['route']);
+            showDialog(
+              context: context,
+              builder: (context) => CustomDynamicAlertDialog(
+                title: "Logout",
+                subTitle: "Are you sure you want to log out?",
+                yesButtonName: "Yes",
+                pressedYes: () {
+                  if (item['label'] == 'Log Out') {
+                    _controller.logOut();
+                    userController.logOut();
+                  }
+                  Get.offAllNamed(item['route']);
+                },
+                noButtonName: "No",
+                pressedNo: () => Get.back(),
+              ),
+            );
           },
         );
       }).toList(),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inventual_saas/src/presentation/screens/expense_category/expense_category_sections/expense_category_update_section.dart';
-import 'package:inventual_saas/src/presentation/widgets/toast/delete_toast.dart';
 import 'package:inventual_saas/src/utils/contstants.dart';
 
 class ExpenseCategoryListSection extends StatefulWidget {
@@ -76,8 +76,10 @@ class _ExpenseCategoryListSectionState
                           buildModalBottomSheet(context, category);
                         } else if (value == 'Delete') {
                           setState(() {
-                            DeleteToast.showDeleteToast(
-                                context, category["category-name"]);
+                            Fluttertoast.showToast(
+                                msg: category["category-name"],
+                                backgroundColor: ColorSchema.success);
+
                             widget.categoryList.removeAt(index);
                           });
                         }

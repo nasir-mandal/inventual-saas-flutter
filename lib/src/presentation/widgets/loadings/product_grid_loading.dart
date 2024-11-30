@@ -3,7 +3,7 @@ import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ProductGridLoading extends StatelessWidget {
-  const ProductGridLoading({Key? key}) : super(key: key);
+  const ProductGridLoading({super.key});
 
   @override
   Widget build(BuildContext context) {
