@@ -4,8 +4,8 @@ import 'package:inventual_saas/src/utils/contstants.dart';
 
 class NoPermissionDialog extends StatelessWidget {
   const NoPermissionDialog({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     return AlertDialog(

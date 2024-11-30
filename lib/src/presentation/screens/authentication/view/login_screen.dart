@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:inventual_saas/src/business_logic/authentication.dart';
 import 'package:inventual_saas/src/business_logic/settings_controller.dart';
 import 'package:inventual_saas/src/presentation/screens/authentication/view/become_a_seller_main.dart';
+import 'package:inventual_saas/src/presentation/widgets/alert_dialog/custom_exit_confirmation_dialog.dart';
 import 'package:inventual_saas/src/presentation/widgets/button/custom_elevated_button.dart';
 import 'package:inventual_saas/src/presentation/widgets/loadings/dashboard_loading.dart';
 import 'package:inventual_saas/src/routes/app_routes.dart';
@@ -29,14 +30,19 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Obx(() {
-        if (_controller.isLoading.value) {
-          return const DashboardLoading();
-        } else {
-          return _buildLoginForm(context);
-        }
-      }),
+    return WillPopScope(
+      onWillPop: () {
+        return _showExitConfirmationDialog(context);
+      },
+      child: Scaffold(
+        body: Obx(() {
+          if (_controller.isLoading.value) {
+            return const DashboardLoading();
+          } else {
+            return _buildLoginForm(context);
+          }
+        }),
+      ),
     );
   }
 
@@ -311,5 +317,12 @@ class _LoginScreenState extends State<LoginScreen> {
           backgroundColor: ColorSchema.danger,
           textColor: ColorSchema.white);
     }
+  }
+
+  Future<bool> _showExitConfirmationDialog(BuildContext context) async {
+    return showDialog(
+      context: context,
+      builder: (context) => const CustomExitConfirmationDialog(),
+    ).then((value) => value ?? false);
   }
 }

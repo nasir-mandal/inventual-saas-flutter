@@ -8,10 +8,10 @@ class CustomAlertDialog extends StatelessWidget {
   final String title;
   final String subTitle;
   const CustomAlertDialog({
-    Key? key,
+    super.key,
     required this.title,
     required this.subTitle,
-  }) : super(key: key);
+  });
   @override
   Widget build(BuildContext context) {
     return AlertDialog(

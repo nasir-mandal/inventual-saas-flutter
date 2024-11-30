@@ -9,12 +9,12 @@ import 'package:inventual_saas/src/business_logic/reports/sells_report_controlle
 import 'package:inventual_saas/src/data/models/dropdown.dart';
 import 'package:inventual_saas/src/presentation/screens/sales/new_sales/new_sales_main_screen.dart';
 import 'package:inventual_saas/src/presentation/screens/sales/salesSections/horizontal_sales_table_section.dart';
+import 'package:inventual_saas/src/presentation/widgets/alert_dialog/no_permission_box.dart';
 import 'package:inventual_saas/src/presentation/widgets/button/custom_elevated_button.dart';
 import 'package:inventual_saas/src/presentation/widgets/date_picker_section/globally_date_picker.dart';
 import 'package:inventual_saas/src/presentation/widgets/drawer/dashboard_drawer.dart';
 import 'package:inventual_saas/src/presentation/widgets/dropdown/custom_drop_down.dart';
 import 'package:inventual_saas/src/presentation/widgets/loadings/table_loading.dart';
-import 'package:inventual_saas/src/presentation/widgets/no_permission_box.dart';
 import 'package:inventual_saas/src/presentation/widgets/not_found.dart';
 import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';

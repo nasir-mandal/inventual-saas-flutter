@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:inventual_saas/src/business_logic/img_uploader/upload_dynamic_img.dart';
 import 'package:inventual_saas/src/business_logic/proudcts/product_controller.dart';
 import 'package:inventual_saas/src/presentation/screens/products/products_sections/update_product_screen.dart';
-import 'package:inventual_saas/src/presentation/widgets/no_permission_box.dart';
+import 'package:inventual_saas/src/presentation/widgets/alert_dialog/no_permission_box.dart';
 import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

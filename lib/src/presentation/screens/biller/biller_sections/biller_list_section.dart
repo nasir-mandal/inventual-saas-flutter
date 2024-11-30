@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inventual_saas/src/business_logic/people/biller/create_biller_controller.dart';
 import 'package:inventual_saas/src/presentation/screens/biller/biller_sections/update_biller_section.dart';
-import 'package:inventual_saas/src/presentation/widgets/no_permission_box.dart';
+import 'package:inventual_saas/src/presentation/widgets/alert_dialog/no_permission_box.dart';
 import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

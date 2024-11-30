@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inventual_saas/src/presentation/screens/authentication/controller/find_supplier_controller.dart';
 import 'package:inventual_saas/src/presentation/screens/authentication/view/become_a_seller_main.dart';
+import 'package:inventual_saas/src/presentation/widgets/alert_dialog/custom_exit_confirmation_dialog.dart';
 import 'package:inventual_saas/src/presentation/widgets/button/custom_elevated_button.dart';
 import 'package:inventual_saas/src/presentation/widgets/dropdown/custom_drop_down.dart';
 import 'package:inventual_saas/src/presentation/widgets/loadings/custom_loading.dart';
@@ -18,134 +19,142 @@ class FindSupplierMain extends StatelessWidget {
     final FindSupplierController findSupplierController =
         Get.put(FindSupplierController());
 
-    return Scaffold(
-      body: Stack(
-        children: [
-          Obx(
-            () => findSupplierController.districtProgress.value
-                ? const CustomLoading(opacity: true)
-                : Container(
-                    decoration: _buildGradientBackground(),
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        _buildAvatar(),
-                        SizedBox(height: 5.h),
-                        _buildTitle(),
-                        SizedBox(height: 40.h),
-                        _buildDropdownField(
-                            "Select District",
-                            findSupplierController.districtList.isEmpty
-                                ? ["District Not Found"]
-                                : findSupplierController.districtList
-                                    .where((district) => district.title != null)
-                                    .map((district) => district.title!)
-                                    .toList(), (String? value) async {
-                          findSupplierController.districtName.value = "";
-                          findSupplierController.districtName.value = value!;
-                          findSupplierController.districtId.value = 0;
-                          findSupplierController.districtId.value =
-                              findSupplierController.districtList
-                                  .firstWhere(
-                                      (district) => district.title == value)
-                                  .id!;
-                          await findSupplierController.getArea();
-                        }),
-                        SizedBox(height: 15.h),
-                        Obx(() => findSupplierController.areaProgress.value
-                            ? CustomLoading(opacity: true)
-                            : _buildDropdownField(
-                                "Select Area",
-                                findSupplierController.areaList.isEmpty
-                                    ? ["Area Not Found"]
-                                    : findSupplierController.areaList
-                                        .where((area) => area.title != null)
-                                        .map((area) => area.title!)
-                                        .toList(), (String? value) async {
-                                findSupplierController.areaName.value = "";
-                                findSupplierController.areaName.value = value!;
-                                findSupplierController.areaId.value = 0;
-                                findSupplierController.areaId.value =
-                                    findSupplierController.areaList
-                                        .firstWhere(
-                                            (area) => area.title == value)
-                                        .id!;
-                                await findSupplierController.getSupplier();
-                              })),
-                        SizedBox(height: 15.h),
-                        Obx(
-                          () => findSupplierController.supplierProgress.value
+    return WillPopScope(
+      onWillPop: () {
+        return _showExitConfirmationDialog(context);
+      },
+      child: Scaffold(
+        body: Stack(
+          children: [
+            Obx(
+              () => findSupplierController.districtProgress.value
+                  ? const CustomLoading(opacity: true)
+                  : Container(
+                      decoration: _buildGradientBackground(),
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          _buildAvatar(),
+                          SizedBox(height: 5.h),
+                          _buildTitle(),
+                          SizedBox(height: 40.h),
+                          _buildDropdownField(
+                              "Select District",
+                              findSupplierController.districtList.isEmpty
+                                  ? ["District Not Found"]
+                                  : findSupplierController.districtList
+                                      .where(
+                                          (district) => district.title != null)
+                                      .map((district) => district.title!)
+                                      .toList(), (String? value) async {
+                            findSupplierController.districtName.value = "";
+                            findSupplierController.districtName.value = value!;
+                            findSupplierController.districtId.value = 0;
+                            findSupplierController.districtId.value =
+                                findSupplierController.districtList
+                                    .firstWhere(
+                                        (district) => district.title == value)
+                                    .id!;
+                            await findSupplierController.getArea();
+                          }),
+                          SizedBox(height: 15.h),
+                          Obx(() => findSupplierController.areaProgress.value
                               ? CustomLoading(opacity: true)
                               : _buildDropdownField(
-                                  "Select Supplier",
-                                  findSupplierController.supplierList.isEmpty
-                                      ? ["Supplier Not Found"]
-                                      : findSupplierController.supplierList
-                                          .where((supplier) =>
-                                              supplier.storeName != null)
-                                          .map(
-                                              (supplier) => supplier.storeName!)
+                                  "Select Area",
+                                  findSupplierController.areaList.isEmpty
+                                      ? ["Area Not Found"]
+                                      : findSupplierController.areaList
+                                          .where((area) => area.title != null)
+                                          .map((area) => area.title!)
                                           .toList(), (String? value) async {
-                                  findSupplierController.supplierName.value =
-                                      "";
-                                  findSupplierController.supplierName.value =
+                                  findSupplierController.areaName.value = "";
+                                  findSupplierController.areaName.value =
                                       value!;
-                                  findSupplierController.supplierKey.value = "";
-                                  findSupplierController.supplierKey.value =
-                                      findSupplierController.supplierList
-                                          .firstWhere((supplier) =>
-                                              supplier.storeName == value)
-                                          .supplierKey!;
-                                  findSupplierController.supplierId.value = 0;
-                                  findSupplierController.supplierId.value =
-                                      findSupplierController.supplierList
-                                          .firstWhere((supplier) =>
-                                              supplier.storeName == value)
+                                  findSupplierController.areaId.value = 0;
+                                  findSupplierController.areaId.value =
+                                      findSupplierController.areaList
+                                          .firstWhere(
+                                              (area) => area.title == value)
                                           .id!;
-                                }),
-                        ),
-                        SizedBox(height: 15.h),
-                        _buildVerifyButton(findSupplierController),
-                        SizedBox(height: 20.h),
-                        Padding(
-                          padding: EdgeInsets.only(right: 12.w),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              GestureDetector(
-                                onTap: () => Get.to(BecomeASellerMain()),
-                                child: Text(
-                                  "Become a Seller",
-                                  style: GoogleFonts.raleway(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 14.sp,
-                                      color: ColorSchema.white),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 5.w,
-                              ),
-                              Icon(
-                                Icons.arrow_forward,
-                                color: ColorSchema.white,
-                                size: 18,
-                              )
-                            ],
+                                  await findSupplierController.getSupplier();
+                                })),
+                          SizedBox(height: 15.h),
+                          Obx(
+                            () => findSupplierController.supplierProgress.value
+                                ? CustomLoading(opacity: true)
+                                : _buildDropdownField(
+                                    "Select Supplier",
+                                    findSupplierController.supplierList.isEmpty
+                                        ? ["Supplier Not Found"]
+                                        : findSupplierController.supplierList
+                                            .where((supplier) =>
+                                                supplier.storeName != null)
+                                            .map((supplier) =>
+                                                supplier.storeName!)
+                                            .toList(), (String? value) async {
+                                    findSupplierController.supplierName.value =
+                                        "";
+                                    findSupplierController.supplierName.value =
+                                        value!;
+                                    findSupplierController.supplierKey.value =
+                                        "";
+                                    findSupplierController.supplierKey.value =
+                                        findSupplierController.supplierList
+                                            .firstWhere((supplier) =>
+                                                supplier.storeName == value)
+                                            .supplierKey!;
+                                    findSupplierController.supplierId.value = 0;
+                                    findSupplierController.supplierId.value =
+                                        findSupplierController.supplierList
+                                            .firstWhere((supplier) =>
+                                                supplier.storeName == value)
+                                            .id!;
+                                  }),
                           ),
-                        ),
-                        SizedBox(height: 50.h),
-                      ],
+                          SizedBox(height: 15.h),
+                          _buildVerifyButton(findSupplierController),
+                          SizedBox(height: 20.h),
+                          Padding(
+                            padding: EdgeInsets.only(right: 12.w),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                GestureDetector(
+                                  onTap: () => Get.to(BecomeASellerMain()),
+                                  child: Text(
+                                    "Become a Seller",
+                                    style: GoogleFonts.raleway(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 14.sp,
+                                        color: ColorSchema.white),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 5.w,
+                                ),
+                                Icon(
+                                  Icons.arrow_forward,
+                                  color: ColorSchema.white,
+                                  size: 18,
+                                )
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 50.h),
+                        ],
+                      ),
                     ),
-                  ),
-          ),
-          Obx(() => findSupplierController.verifyProgress.value
-              ? CustomLoading(
-                  opacity: findSupplierController.verifyProgress.value,
-                )
-              : const SizedBox()),
-        ],
+            ),
+            Obx(() => findSupplierController.verifyProgress.value
+                ? CustomLoading(
+                    opacity: findSupplierController.verifyProgress.value,
+                  )
+                : const SizedBox()),
+          ],
+        ),
       ),
     );
   }
@@ -232,5 +241,12 @@ class FindSupplierMain extends StatelessWidget {
         buttonRadius: 50,
       ),
     );
+  }
+
+  Future<bool> _showExitConfirmationDialog(BuildContext context) async {
+    return showDialog(
+      context: context,
+      builder: (context) => const CustomExitConfirmationDialog(),
+    ).then((value) => value ?? false);
   }
 }

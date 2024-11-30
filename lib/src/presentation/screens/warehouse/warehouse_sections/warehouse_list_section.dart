@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inventual_saas/src/business_logic/warehouse/warehouse_controller.dart';
 import 'package:inventual_saas/src/presentation/screens/warehouse/warehouse_sections/update_warehouse_section.dart';
-import 'package:inventual_saas/src/presentation/widgets/no_permission_box.dart';
+import 'package:inventual_saas/src/presentation/widgets/alert_dialog/no_permission_box.dart';
 import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

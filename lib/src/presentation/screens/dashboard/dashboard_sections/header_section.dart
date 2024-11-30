@@ -4,13 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inventual_saas/src/business_logic/authentication.dart';
+import 'package:inventual_saas/src/presentation/widgets/alert_dialog/custom_dynamic_alert_dialog.dart';
 import 'package:inventual_saas/src/routes/app_routes.dart';
 import 'package:inventual_saas/src/utils/contstants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DashboardHeaderSection extends StatefulWidget {
   final Function openDrawer;
+
   const DashboardHeaderSection({super.key, required this.openDrawer});
+
   @override
   State<DashboardHeaderSection> createState() => _DashboardHeaderSectionState();
 }
@@ -101,8 +104,20 @@ class _DashboardHeaderSectionState extends State<DashboardHeaderSection> {
             InkWell(
               borderRadius: BorderRadius.circular(50),
               onTap: () {
-                userAuthenticationController.logOut();
-                Get.offNamed(AppRoutes.login);
+                showDialog(
+                  context: context,
+                  builder: (context) => CustomDynamicAlertDialog(
+                    title: "LogOut",
+                    subTitle: "Are you sure you want to log out?",
+                    yesButtonName: "Yes",
+                    pressedYes: () {
+                      userAuthenticationController.logOut();
+                      Get.offAllNamed(AppRoutes.login);
+                    },
+                    noButtonName: "No",
+                    pressedNo: () => Get.back(),
+                  ),
+                );
               },
               child: Container(
                 width: 40,
